@@ -9,7 +9,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="views/css/login.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
 <h1>Login</h1>
