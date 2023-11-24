@@ -9,5 +9,7 @@ switch ($request) {
         break;
 }
 
+
+echo "HELLO JOHN!";
 // CAUTION: Any code/html below this line will be executed for every request made.
 //echo "FOOTER";
