@@ -1,5 +1,5 @@
 
-<!--Redirect if logged in-->
+<!--Redirect if logged-in-->
 
 <!doctype html>
 <html lang="en">
