@@ -51,10 +51,11 @@
         <label for="password">Password: </label>
         <div class="underline"></div>
     </div>
+    <p class="forgot"><a href="https://example.com">Forgot Password?</a></p>
     
     <div class="remember-me">
         <input type="checkbox" name="remember" id="remember">
-        <label for="remember">Remember me</label><br>
+        <label>Remember me</label><br>
 
     </div><br>
     <input class="submit" type="submit" value="Login">
