@@ -14,13 +14,26 @@
 </head>
 <body>
     
+
 <p style="background-image: url('img_girl.jpg');">
 <div class="login-box">
 <h1>Login</h1>
 
 <h2>Welcome Back!</h2>    
-<input class="Github" type="submit" value="Login with Github"><br>
-<input class="Google" type="submit" value="Login with Google">
+<nav class="button">
+<button class="github-button">
+    <img src="https://static-00.iconduck.com/assets.00/github-icon-2048x1988-jzvzcf2t.png" alt="Google Logo">
+    Sign in with Github
+</button>
+<button class="google-button">
+    <img src="https://cdn.freebiesupply.com/logos/large/2x/google-g-2015-logo-png-transparent.png" alt="Google Logo">
+    Sign in with Google
+</button>
+</nav>
+
+
+
+
 
     <div class="separator">
         <hr>

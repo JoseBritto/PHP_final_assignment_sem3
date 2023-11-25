@@ -32,6 +32,9 @@ h2{
     color: #ccc;
     
 }
+.button{
+    margin-left:100px ;
+}
 
 .input-field {
     position: relative;
@@ -40,12 +43,11 @@ h2{
     width: 200px;
     height: fit-content;
     cursor: text;
+    color: #00ffcc;
+    margin-left: 30%;
+
     
 }
-.input-field{
-    text-align: center;
-}
-
 .input-field input {
     display: block;
     border: none;
@@ -74,11 +76,7 @@ h2{
     
     
 }
-.input-field{
-    color: #00ffcc;
 
-    
-}
 #password,#username{
     background-color: #397082;
     padding: 5px;
@@ -115,32 +113,17 @@ h2{
     text-align: center;
     box-shadow: #21363d 5px 5px 5px ;
     animation: slideTopToMiddle 1.5s ease;
-    
-    
-    
-    
+
 }
+
 .submit{
     background-color: aquamarine;
     padding-inline: 120px;
-    border-radius: 50px;
+    border-radius: 20px;
     padding-block: 10px;
     box-shadow: #21363d 5px 5px 5px;
 }
-.Github{
-    background-color: rgb(14, 15, 15);
-    padding-inline: 85px;
-    border-radius: 10px;
-    padding-block: 10px;
-    color: aliceblue;
-}
-.Google{
-    margin-top: 10px;
-    background-color: rgb(251, 251, 251);
-    padding-inline: 85px;
-    border-radius: 10px;
-    padding-block: 10px;
-}
+
 label{
     padding: 10px;
     color: aliceblue;
@@ -168,3 +151,43 @@ p a {
     transform: translate(-50%, -50%);
     margin: 0;
   }
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: rgb(251, 251, 251);
+    padding-inline: 85px;
+    border-radius: 10px;
+    padding-block: 10px;
+}
+
+.google-button img {
+    width: 20px; /* Adjust the size of the Google logo */
+    margin-right: 10px; /* Add some space between the logo and text */
+}
+.github-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: white;
+    border: white 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(14, 15, 15);
+    padding-inline: 85px;
+    border-radius: 10px;
+    padding-block: 10px;
+
+}
+
+.github-button img {
+    width: 20px; /* Adjust the size of the Google logo */
+    margin-right: 10px; /* Add some space between the logo and text */
+}
