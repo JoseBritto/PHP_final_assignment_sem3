@@ -6,6 +6,7 @@ body{
     background-size: 100%;
     background-position: center -290px;
     animation: moveUp 1.5s ease;
+    overflow-y: hidden;
 }
 @keyframes moveUp {
     from {
@@ -71,9 +72,9 @@ h2{
 .input-field input:focus ~ label,
 .input-field input:valid ~ label{
     position: absolute;
-    top: -25px;
+    top: -30px;
     left: 0;
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: #28e975;
     
     
@@ -81,7 +82,7 @@ h2{
 
 #password,#username{
     background-color: #49869b;
-    padding: 5px;
+    padding: 7px;
     
 }
 .input-field input:empty ~ .underline:before{
@@ -95,6 +96,7 @@ h2{
     left: 0;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
+    overflow: hidden;
     
 }
 .remember-me{
@@ -167,6 +169,7 @@ p a {
     padding-inline: 85px;
     border-radius: 10px;
     padding-block: 10px;
+    border: #000000 2px solid;
 }
 
 .google-button img {
