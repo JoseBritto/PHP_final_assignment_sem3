@@ -1,7 +1,36 @@
-
+body{
+    margin: 70px;
+    margin-left: 60%;
+    background-color: rgb(82, 130, 114);
+    background-image: url('img/background.jpg');
+    background-size: 100%;
+    background-position: center -290px;
+    animation: moveUp 1.5s ease;
+}
+@keyframes moveUp {
+    from {
+      background-position: center -190px;
+    }
+    to {
+      background-position: center -290px;
+    }
+  }
+  @keyframes slideTopToMiddle {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 
 input:focus {
     outline: none;
+}
+
+h2{
+    color: #ccc;
+    
 }
 
 .input-field {
@@ -12,6 +41,9 @@ input:focus {
     height: fit-content;
     cursor: text;
     
+}
+.input-field{
+    text-align: center;
 }
 
 .input-field input {
@@ -39,6 +71,18 @@ input:focus {
     left: 0;
     font-size: 0.75rem;
     color: #28e975;
+    
+    
+}
+.input-field{
+    color: #00ffcc;
+
+    
+}
+#password,#username{
+    background-color: #397082;
+    padding: 5px;
+    
 }
 .input-field input:empty ~ .underline:before{
     content: "";
@@ -51,6 +95,10 @@ input:focus {
     left: 0;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
+    
+}
+.remember-me{
+    display: inline;
 }
 
 .input-field input:focus ~ .underline:before,
@@ -58,3 +106,65 @@ input:focus {
     background-color: #28e975;
     transform: scaleX(1);
 }
+.login-box{
+    border: #000000 solid 5px;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #21363d;
+    color: aliceblue;
+    text-align: center;
+    box-shadow: #21363d 5px 5px 5px ;
+    animation: slideTopToMiddle 1.5s ease;
+    
+    
+    
+    
+}
+.submit{
+    background-color: aquamarine;
+    padding-inline: 120px;
+    border-radius: 50px;
+    padding-block: 10px;
+    box-shadow: #21363d 5px 5px 5px;
+}
+.Github{
+    background-color: rgb(14, 15, 15);
+    padding-inline: 85px;
+    border-radius: 10px;
+    padding-block: 10px;
+    color: aliceblue;
+}
+.Google{
+    margin-top: 10px;
+    background-color: rgb(251, 251, 251);
+    padding-inline: 85px;
+    border-radius: 10px;
+    padding-block: 10px;
+}
+label{
+    padding: 10px;
+    color: aliceblue;
+}
+p a {
+    color: #00ffcc;
+    text-decoration: none;
+  }
+  .separator {
+    position: relative; 
+    text-align: center; 
+    margin: 20px 0; 
+  } 
+  .separator hr {
+    border: none; 
+    border-top: 1px solid #ccc; 
+    margin: 0; 
+  }
+  .separator p {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    background-color: #21363d; 
+    padding: 0 10px; 
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }

@@ -13,9 +13,19 @@
     <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
+    
+<p style="background-image: url('img_girl.jpg');">
+<div class="login-box">
 <h1>Login</h1>
 
-<h2>Welcome Back!</h2>
+<h2>Welcome Back!</h2>    
+<input class="Github" type="submit" value="Login with Github"><br>
+<input class="Google" type="submit" value="Login with Google">
+
+    <div class="separator">
+        <hr>
+        <p>or</p>
+    </div>
 
 <form action="login.php" method="post">
     <div class="input-field">
@@ -31,11 +41,14 @@
     
     <div class="remember-me">
         <input type="checkbox" name="remember" id="remember">
-        <label for="remember">Remember me</label>
-    </div>
-    <input type="submit" value="Login">
-</form>
+        <label for="remember">Remember me</label><br>
 
+    </div><br>
+    <input class="submit" type="submit" value="Login">
+    <p>Don't have account? <a href="https://example.com">Register</a>.</p>
+    
+</form>
+</div>
 </body>
 </html>
 
