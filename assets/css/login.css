@@ -1,5 +1,5 @@
 body{
-    margin: 70px;
+    margin: 65px;
     margin-left: 60%;
     background-color: rgb(82, 130, 114);
     background-image: url('img/background.jpg');
@@ -27,7 +27,9 @@ body{
 input:focus {
     outline: none;
 }
-
+h1{
+    font-size: 55px;
+}
 h2{
     color: #ccc;
     
