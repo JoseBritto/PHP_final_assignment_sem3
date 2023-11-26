@@ -1,42 +1,61 @@
 body{
-    margin: 65px;
-    margin-top: 0%;
-    margin-left: 60%;
-    background-image: url('img/background.jpg');
+    background-color: #303138;
     background-size: 100%;
     background-position: center -290px;
     animation: moveUp 1.5s ease;
     overflow-y: hidden;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100vh;
 }
-@keyframes moveUp {
-    from {
-      background-position: center -190px;
-    }
-    to {
-      background-position: center -290px;
-    }
-  }
-  @keyframes slideTopToMiddle {
-    from {
-      transform: translateY(-100%);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
 
 input:focus {
     outline: none;
 }
+
+
+
+/* Reset default checkbox styles */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Define the custom checkbox style */
+input[type="checkbox"]::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #3498db; /* Change the border color as needed */
+    /*
+    background-color: white;
+    */
+    transition: border-color 0.3s ease;
+}
+
+/* Style for checked state */
+input[type="checkbox"]:checked::before {
+    background-color: #3498db; /* Change the background color for the checked state */
+    border-color: #3498db;
+}
+
+/* Hover effect */
+input[type="checkbox"]:hover::before, input[type="checkbox"]:focus::before {
+    border-color: #2980b9; /* Change the border color for hover effect */
+}
+
 h1{
-    font-size: 55px;
+    font-size: 2em;
 }
 h2{
+    font-size: 1em;
     color: #ccc;
     
-}
-.button{
-    margin-left:100px ;
 }
 
 .input-field {
@@ -46,15 +65,12 @@ h2{
     width: 200px;
     height: fit-content;
     cursor: text;
-    color: #00ffcc;
-    margin-left: 30%;
-
-    
+    color: #00ffcc;    
 }
 .input-field input {
     display: block;
     border: none;
-    border-bottom: 2px solid rgba(0,0,0, 0.12);
+    border-bottom: 2px solid #ccc;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -65,7 +81,7 @@ h2{
     top: -5px;
     left: 0;
     font-size: 1rem;
-    color: black;
+    color: #ccc;
     transition: all 0.3s ease-in-out;
 }
 
@@ -81,9 +97,11 @@ h2{
 }
 
 #password,#username{
-    background-color: #49869b;
+    background-color: transparent;
     padding: 7px;
-    
+    color: #ccc;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
 }
 .input-field input:empty ~ .underline:before{
     content: "";
@@ -97,7 +115,6 @@ h2{
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
     overflow: hidden;
-    
 }
 .remember-me{
     display: inline;
@@ -109,93 +126,68 @@ h2{
     transform: scaleX(1);
 }
 .login-box{
-    border: #000000 solid 5px;
     border-radius: 5px;
     padding: 20px;
-    background-color: #21363d;
     color: aliceblue;
-    text-align: center;
-    box-shadow: #21363d 5px 5px 5px ;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    /*
     animation: slideTopToMiddle 1.5s ease;
-
+    */
+    width: 500px;
 }
 
 .submit{
-    background-color: aquamarine;
+    background-color: #6158B2;
     padding-inline: 120px;
-    border-radius: 20px;
+    border-radius: 5px;
+    border: none;
     padding-block: 10px;
-    box-shadow: #21363d 5px 5px 5px;
+    color: #ccc;
+    box-shadow: #221f3f 2px 2px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 1em;
+}
+.submit:hover, .submit:focus{
+    background-color: #6c62c6;
+    color: #221f3f;
+    box-shadow: #6c62c6 0 0 15px;
 }
 
 label{
-    padding: 10px;
-    color: aliceblue;
+    padding: 10px;    
+    color: #ccc;
+
 }
-p a {
+a {
     color: #00ffcc;
     text-decoration: none;
-  }
-  .separator {
-    position: relative; 
-    text-align: center; 
-    margin: 20px 0; 
-  } 
-  .separator hr {
-    border: none; 
-    border-top: 1px solid #ccc; 
-    margin: 0; 
-  }
-  .separator p {
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    background-color: #21363d; 
-    padding: 0 10px; 
-    transform: translate(-50%, -50%);
-    margin: 0;
-  }
-.google-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    background-color: rgb(251, 251, 251);
-    padding-inline: 85px;
-    border-radius: 10px;
-    padding-block: 10px;
-    border: #000000 2px solid;
 }
-
-.google-button img {
-    width: 20px;
-    margin-right: 10px;
-}
-.github-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    color: white;
-    border: white 2px solid;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: rgb(14, 15, 15);
-    padding-inline: 85px;
-    border-radius: 10px;
-    padding-block: 10px;
-
-}
-
-.github-button img {
-    width: 20px; 
-    margin-right: 10px;
-}
+  
 .forgot{
     padding-bottom: 30px;
+}
+
+
+@keyframes moveUp {
+    from {
+        background-position: center -190px;
+    }
+    to {
+        background-position: center -290px;
+    }
+}
+@keyframes slideTopToMiddle {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.img-box{
+    margin-right: 350px;
+    margin-left: 150px;
 }
