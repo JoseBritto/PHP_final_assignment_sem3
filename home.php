@@ -9,20 +9,26 @@
 <body>
 
 <header>
-    <h1>Your Website Name</h1>
+    <h1>Pathways</h1>
     <div class="header-right">
-      <a href="#">My Account</a>
-      <a href="#" id="settingsLink">Settings</a>
+      <span onclick="buttonClick">My Account</span>
+    
     </div>
   </header>
 <div class="headleft">
   <nav class="leftnav">
+    <h2 class="my_stuff">MY STUFF</h2>
     <ul>
       <li><a href="#">Dashboard</a></li>
       <li><a href="#">Pathways</a></li>
       <li><a href="#">Badges</a></li>
       <li><a href="#">Certificates</a></li>
       <li><a href="#">Curriculum Vitae</a></li>
+      <li><a href="#">Britto's Secrets</a></li>
+    </ul>
+    <h2 class="my_stuff">EXPLORE</h2>
+    <ul>
+      <li><a href="#">Dashboard</a></li>
     </ul>
   </nav>
   </div>
@@ -39,35 +45,61 @@
     <div class="grid-container">
 
         <div class="grid-item">
-        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">      
+          <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
+          
+          <h4>PATHWAY</h4>
+          <h2>Getting a job</h2>
+            <div>
+            <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.<p>
+            </div>
         </div>
 
         <div class="grid-item">
-        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">      
+          <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
+          <h2>Getting a job</h2>
+            <div>
+            <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.<p>
+            </div>
         </div>
 
         <div class="grid-item">
-        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">      
+          <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
+          <h2>Getting a job</h2>
+            <div>
+            <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.<p>
+            </div>
         </div>
 
         <div class="grid-item">
-        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">      
+          <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
+          <h2>Getting a job</h2>
+            <div>
+            <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.<p>
+            </div>
         </div>
 
         <div class="grid-item">
-        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">      
+          <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
+          <h2>Getting a job</h2>
+            <div>
+            <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.<p>
+            </div>
         </div>
 
         <div class="grid-item">
-        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">      
+          <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
+          <h2>Getting a job</h2>
+            <div>
+            <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.<p>
+            </div>
         </div>
 
         <div class="grid-item">
-        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">      
-        </div>
-
-        <div class="grid-item">
-        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">      
+          <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
+          <h2>Getting a job</h2>
+            <div>
+            <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.<p>
+            </div>
         </div>
 
     </div>
