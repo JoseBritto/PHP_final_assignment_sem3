@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #5b7896;
+    
+  }
+  
+  header {
+    
+    padding-left: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  .headleft {
+    margin-right: 1200px;
+    background-color: #635147;
+  }
+
+  article {
+    margin-left: 10px; /* Adjust the margin to the left to match the margin on the right */
+    border: #6ba1b3 2px solid;
+    color: #efeeee;
+    background: linear-gradient(to right, #21363d, #3d626e, #21363d);
+    border-radius: 5px;
+  }
+  
+  .leftnav {
+    background-color: #333;
+    float: left;
+    
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 200px;
+   
+    
+  }
+  
+  li {
+    display: block;
+    padding-right: 10px;
+
+  }
+  
+  a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; /* Add color transition */
+    margin-bottom: 25px;
+    padding-right: 150px;
+   
+    
+  }
+  
+  a:hover {
+    background-color: #efeeee;
+    color: black; /* Change text color on hover */
+    border-radius: 10px;
+  }
+  article{
+    background-color: #aaa;
+    margin-right: 10px;
+    margin-left: 300px;
+    padding: 45px;
+   border: #6ba1b3 2px solid;
+    color: #efeeee;
+    background: linear-gradient(to right, #21363d, #3d626e, #21363d);
+    border-radius: 5px;
+  }
+  .mid_nav{
+    padding: 10px;
+    padding-left: 300px;
+    margin: 10px;
+    background-color: transparent;
+  }
+  .all{
+    padding: 7px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .in_progress{
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 50px;
+  }
+  .Finished{
+    padding: 7px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 50px;
+  }
+  .grid-container {
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 20px;
+    margin-left: 310px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+
+  }
+  
+  .grid-item {
+    background: linear-gradient(to right, #21363d, #3d626e, #21363d);
+    padding: 20px;
+    border-radius: 5px;
+    padding-bottom: 230px;
+    padding-right: 265px;
+    display: inline-flex;
+    border: #21363d 2px dashed;
+    
+
+  }
+  .grid-item img {
+    width: 100px; 
+    
+  }
