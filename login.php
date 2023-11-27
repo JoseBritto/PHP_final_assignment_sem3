@@ -59,7 +59,7 @@
         </div>
         <br>
         <input class="submit" type="submit" value="Login">
-        <p>Don't have account? <a href="https://example.com">Register</a>.</p>
+        <p>Don't have account? <a href="register.php">Register</a>.</p>
         
     </form>
 </div>

@@ -48,7 +48,7 @@
         </div>
         <br>
         <input class="submit" type="submit" value="Register Now">
-        <p>Already have an account? <a href="https://example.com">Login</a>.</p>
+        <p>Already have an account? <a href="login.php">Login</a>.</p>
 
     </form>
 </div>
