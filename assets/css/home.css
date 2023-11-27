@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background-color: #303138;
-    background: linear-gradient(to bottom, #303138, #3d3e47);
+    
     
     
   }
@@ -85,23 +85,20 @@ body {
     color: black; /* Change text color on hover */
     border-radius: 10px;
   }
-  article{
-    background-color: #aaa;
-    margin-right: 10px;
-    margin-left: 300px;
-    padding: 45px;
-   border: #4c4c4d 2px solid;
-    color: #efeeee;
-    background: linear-gradient(to right, #2a2b30, #303136, #2a2b30);
-    border-radius: 5px;
-    padding-bottom: 25px;
-    padding-top: 25px;
-  }
+  
   .mid_nav{
     padding: 10px;
     padding-left: 300px;
     margin: 10px;
     background-color: transparent;
+    display: inline-block; 
+  }
+  .mid_nav ul{
+    padding-bottom: 0px;
+  }
+  .mid_nav li{
+    display: inline-block;
+    font-size: 17px;
   }
   .all{
     padding: 7px;
@@ -130,6 +127,8 @@ body {
     flex-wrap: wrap;
     overflow: hidden;
     text-align: center;
+    margin-top: 0;
+   
     
 
 
@@ -139,7 +138,7 @@ body {
     background-color: #2a2b30;
     padding: 20px;
     border-radius: 5px;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
     padding-right: 265px;
     display: flex;
     flex-direction: column;
@@ -148,6 +147,7 @@ body {
     width: 100px;
     color: rgb(180, 175, 175);
     text-align: justify;
+
     
     
 
@@ -176,4 +176,43 @@ body {
   .my_stuff{
     color: #efeeee;
     padding-left: 10px;
+  }
+  progress{
+    width: 225px;
+    
+  }
+
+ 
+  .all::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background-color: rgb(76, 165, 175); 
+    transition: width 0.3s;
+  }
+  .all:hover::after {
+    width: 100%;
+  }
+  .in_progress::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background-color: rgb(76, 165, 175);
+    transition: width 0.3s;
+  }
+  .in_progress:hover::after {
+    width: 100%;
+  }
+  .Finished::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background-color: rgb(76, 165, 175); 
+    transition: width 0.3s;
+  }
+  .Finished:hover::after {
+    width: 100%;
   }

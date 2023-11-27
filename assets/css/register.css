@@ -1,0 +1,60 @@
+body {
+    background-color: #303138;
+    background-size: 100%;
+    background-position: center -290px;
+    animation: moveUp 1.5s ease;
+    overflow-y: hidden;
+    display: flex;
+    justify-content:center;
+    align-items: start;
+    height: 100vh;
+  }
+  
+  .container {
+    width: 300px;
+    padding: 50px;
+    padding-inline: 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #2c2e2c;
+
+  flex-direction: row;
+  justify-content: end;
+  float: right;
+
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px;
+  }
+  .items{
+    padding: 10px;
+  }
+  
+  input {
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+ #fname{
+    float: right;
+ }
+  
