@@ -21,15 +21,14 @@
 <div class="login-box">
     <h1>Sign Up</h1>
 
-    <h2>Register blah bla blah!</h2>
-   
+    <h2>Welcome, Adventurer!</h2>
+    <br>
     <form action="register.php" method="post">
         <div class="input-field">
             <input type="text" id="username" name="username" required>
             <label for="username">Username</label>
             <div class="underline"></div>
         </div>
-        <br>
         <div class="input-field">
             <input type="password" name="password" id="password" required>
             <label for="password">Password </label>
@@ -40,12 +39,12 @@
             <label for="confirm_password">Confirm Password </label>
             <div class="underline"></div>
         </div>
-        <br>
         <div class="input-field">
             <input type="text" name="display_name" id="display_name" required>
             <label for="display_name">Display Name </label>
             <div class="underline"></div>
         </div>
+        <br>
         <br>
         <input class="submit" type="submit" value="Register Now">
         <p>Already have an account? <a href="login.php">Login</a>.</p>
