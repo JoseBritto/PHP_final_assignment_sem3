@@ -1,4 +1,7 @@
 <?php
+session_start(); // We need to start the session in order to access session variables
+require_once "models/User.php";
+require_once "models/Database.php";
 
 /*
  * Call this function to attempt to log in a user.
@@ -6,11 +9,21 @@
  */
 function login($username, $password)
 {
-    // TODO
     // 1. Check if username exists in database
     // 2. If it does, check if the password matches
     // 3. If it does, log in the user
     // 4. Return true if successful, false otherwise
+    $user = Database::getInstance()->tryGetUser($username);
+    if($user == null){
+        return false;
+    }
+    $storedPasswordHash = $user->getPassword();
+    if (password_verify($password, $storedPasswordHash)) {
+        $_COOKIE['username'] = $_SESSION['username'] = $user->getUsername();
+        $_SESSION['display_name'] = $user->getDisplayName();
+        $_COOKIE['password'] = $storedPasswordHash; // We don't want to store the plaintext password in the cookie (or anywhere really)
+        return true;
+    }
     return false;
 }
 
@@ -19,10 +32,21 @@ function login($username, $password)
  * Returns true if successful, false otherwise.
  */
 function logout($force = false){
-    // TODO
-    // 1. Check if user is logged in
-    // 2. If they are, log them out
-    // 3. Return true if successful, false otherwise
+    if($force){
+        unset($_SESSION['username']);
+        unset($_SESSION['display_name']);
+        unset($_COOKIE['username']);
+        unset($_COOKIE['password']);
+        return true;
+    }
+    
+    if(isLoggedIn()){
+        unset($_SESSION['username']);
+        unset($_SESSION['display_name']);
+        unset($_COOKIE['username']);
+        unset($_COOKIE['password']);
+        return true;
+    }
     return false;
 }
 
@@ -31,9 +55,9 @@ function logout($force = false){
  * Returns true if they are, false otherwise.
  */
 function isLoggedIn(){
-    // TODO
-    // 1. Check if user is logged in
-    // 2. Return true if they are, false otherwise
+    if(isset($_SESSION['username'])){
+        return true;
+    }
     return false;
 }
 
@@ -42,10 +66,13 @@ function isLoggedIn(){
  * Returns the username if they are logged in, false otherwise.
  */
 function getUsername(){
-    // TODO
     // 1. Check if user is logged in
     // 2. If they are, return their username
     // 3. Return false otherwise
+    
+    if(isLoggedIn()){
+        return $_SESSION['username'];
+    }
     return false;
 }
 
@@ -69,10 +96,12 @@ function signup($username, $password, $displayName)
  */
 function getDisplayName()
 {
-    // TODO
     // 1. Check if user is logged in
     // 2. If they are, return their display name
     // 3. Return false otherwise
+    if(isLoggedIn()){
+        return $_SESSION['display_name'];
+    }
     return false;
 }
 
@@ -83,10 +112,14 @@ function getDisplayName()
  */
 function isValidExistingUsername($username)
 {
-    // TODO
     // 1. Check if username exists in database
     // 2. Return true if it does, false otherwise
-    return false;
+    
+    $user = Database::getInstance()->tryGetUser($username);
+    if($user == null){
+        return false;
+    }
+    return true;
 }
 
 
@@ -95,12 +128,25 @@ function isValidExistingUsername($username)
  * Returns true if it is, false if its unavailable or invalid.
  */
 function isValidNewUsername($username){
-    // TODO
     // 1. Check if username is permitted
     // 2. Return false if it isn't
     // 3. Check if username exists in database
     // 4. Return false if it does, true otherwise
-    return false;
+    
+    if(!isPermittedUsername($username)){
+        return false;
+    }
+    
+    return !isValidExistingUsername($username);
+}
+
+function isPermittedUsername($username)
+{
+    // TODO
+    // 1. Check if username is permitted
+    // 2. Return false if it isn't
+    // 3. Return true otherwise
+    return true;
 }
 
 /*
@@ -109,11 +155,7 @@ function isValidNewUsername($username){
  */
 function isValidDisplayName($displayName)
 {
-    // TODO
-    // 1. Check if display name is permitted
-    // 2. Return false if it isn't
-    // 3. Return true otherwise
-    return false;
+    return true;
 }
 
 // Password strength check should be done client-side
@@ -123,24 +165,13 @@ function isValidDisplayName($displayName)
  * Returns true if it is, false otherwise.
  */
 function isValidPassword($password){
-    // TODO
-    // 1. Check if password is permitted
-    // 2. Return false if it isn't
-    // 3. Return true otherwise
-    return false;
+    // TODO: Add other password requirements
+    if(empty($password)){
+        return false;
+    }
+    return true;
 }
 
-/*
- * Call this function to check if a password matches the user's password.
- * Returns true if it does, false otherwise.
- */
-function isValidPasswordForUser($username, $password)
-{
-    // TODO
-    // 1. Check if password matches the user's password
-    // 2. Return true if it does, false otherwise
-    return false;
-}
 
 /*
  * Call this function to check if logged-in user is an admin.
