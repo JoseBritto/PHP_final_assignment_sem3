@@ -3,7 +3,7 @@
 
 <?php
 session_start();
-
+require_once "controllers/login-controller.php";
 /*
  * 
  * if(is logged in)
@@ -17,6 +17,7 @@ session_start();
 // Redirect if logged-in
 if (isset($_SESSION['username'])) {
     header("Location: home.php");
+/*    echo $_SESSION['display_name'];*/
     exit;
 }
 
@@ -24,14 +25,15 @@ if (isset($_SESSION['username'])) {
 if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-    password_verify($password, $hash);
-    //TODO: Check if the username and password are correct/not empty
     
-    // If they are correct, set the session variable and redirect to index.php
-    $_SESSION['username'] = $username;
-    header("Location: home.php");
-    exit;
+    $loggedIn = login($username, $password);
+    if($loggedIn){
+/*        echo "Logged in successfully as ". $_SESSION['display_name'];*/
+        header("Location: home.php");
+        exit;
+    }
+/*    echo "Failed to log in";*/
+    $login_failed = true;
 }
 
 // If the username and password are not empty, try to log in
