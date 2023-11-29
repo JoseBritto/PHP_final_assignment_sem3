@@ -45,4 +45,14 @@ class Database
         }
         return null;
     }
+
+    public function addUser($username, $password, $displayName)
+    {
+        $sql = "INSERT INTO registered_users (username, password, display_name) VALUES ('$username', '$password', '$displayName')";
+        $result = $this->conn->query($sql);
+        if($result){
+            return true;
+        }
+        return false;
+    }
 }

@@ -90,7 +90,16 @@ function signup($username, $password, $displayName)
     // 2. If it does, return false
     // 3. If it doesn't, create a new user
     // 4. Return true if successful, false otherwise
-    return false;
+    if(!isValidNewUsername($username)){
+        return false;
+    }
+    if(!isValidPassword($password)){
+        return false;
+    }
+    if(!isValidDisplayName($displayName)){
+        return false;
+    }
+    return Database::getInstance()->addUser($username, password_hash($password, PASSWORD_DEFAULT), $displayName);
 }
 
 /*
@@ -115,9 +124,6 @@ function getDisplayName()
  */
 function isValidExistingUsername($username)
 {
-    // 1. Check if username exists in database
-    // 2. Return true if it does, false otherwise
-    
     $user = Database::getInstance()->tryGetUser($username);
     if($user == null){
         return false;
@@ -131,10 +137,6 @@ function isValidExistingUsername($username)
  * Returns true if it is, false if its unavailable or invalid.
  */
 function isValidNewUsername($username){
-    // 1. Check if username is permitted
-    // 2. Return false if it isn't
-    // 3. Check if username exists in database
-    // 4. Return false if it does, true otherwise
     
     if(!isPermittedUsername($username)){
         return false;
@@ -145,11 +147,44 @@ function isValidNewUsername($username){
 
 function isPermittedUsername($username)
 {
-    // TODO
-    // 1. Check if username is permitted
-    // 2. Return false if it isn't
-    // 3. Return true otherwise
-    return true;
+    return getUsernameErrorMessage($username, false) == "";
+}
+
+function getUsernameErrorMessage($username, $checkExisting = true)
+{
+    if(empty($username)){
+        return "Username cannot be empty";
+    }
+    if(strlen($username) > MAX_USERNAME_LENGTH){
+        return "Username cannot be longer than " . MAX_USERNAME_LENGTH . " characters";
+    }
+    if(strlen($username) < MIN_USERNAME_LENGTH){
+        return "Username cannot be shorter than " . MIN_USERNAME_LENGTH . " characters";
+    }
+    if(!preg_match(USERNAME_REGEX, $username)){
+        return "Username can only contain lowercase letters, numbers and underscores";
+    }
+    if($checkExisting && isValidExistingUsername($username)){
+        return "Username is already taken";
+    }
+    return "";
+}
+
+function getDisplayNameErrorMessage($displayName)
+{
+    if(empty($displayName)){
+        return "Display name cannot be empty";
+    }
+    if(strlen($displayName) > MAX_DISPLAY_NAME_LENGTH){
+        return "Display name cannot be longer than " . MAX_DISPLAY_NAME_LENGTH . " characters";
+    }
+    if(strlen($displayName) < MIN_DISPLAY_NAME_LENGTH){
+        return "Display name cannot be shorter than " . MIN_DISPLAY_NAME_LENGTH . " characters";
+    }
+    if(!preg_match(DISPLAY_NAME_REGEX, $displayName)){
+        return "Display name can only contain letters, numbers, underscores and spaces";
+    }
+    return "";
 }
 
 /*
@@ -158,21 +193,30 @@ function isPermittedUsername($username)
  */
 function isValidDisplayName($displayName)
 {
-    return true;
+    return getDisplayNameErrorMessage($displayName) == "";
 }
 
-// Password strength check should be done client-side
+
+function getPasswordErrorMessage($password)
+{
+    if(empty($password)){
+        return "Password cannot be empty";
+    }
+    if(strlen($password) > MAX_PASSWORD_LENGTH){
+        return "Password cannot be longer than " . MAX_PASSWORD_LENGTH . " characters";
+    }
+    if(strlen($password) < MIN_PASSWORD_LENGTH){
+        return "Password cannot be shorter than " . MIN_PASSWORD_LENGTH . " characters";
+    }
+    return "";
+}
 
 /*
  * Call this function to check if a password is valid.
  * Returns true if it is, false otherwise.
  */
 function isValidPassword($password){
-    // TODO: Add other password requirements
-    if(empty($password)){
-        return false;
-    }
-    return true;
+    return getPasswordErrorMessage($password) == "";
 }
 
 
