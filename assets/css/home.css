@@ -11,6 +11,11 @@ body {
     cursor: pointer;
     
   }
+  hr{
+    margin: 7px;
+    color: #f5f5fb;
+
+  }
   
   .bar1, .bar2, .bar3 {
     width: 35px;
@@ -44,24 +49,11 @@ body {
   }
   
   .header-right {
-    padding: 100px;
-    display: inline-block;
+    
+    
   padding: 30px 7px;
-  color: #f3eeee; /* Text color (adjust as needed) */
-  text-decoration: none;
-  position: relative;
+ 
 
-  }
-  .header-right::after {
-    content: '';
-    display: block;
-    height: 2px;
-    width: 0;
-    background-color: #4CAF50; /* Highlight color (adjust as needed) */
-    transition: width 0.3s;
-  }
-  .header-right:hover::after {
-    width: 100%;
   }
   .headleft {
     margin-right: 1200px;
@@ -178,6 +170,7 @@ body {
   
 
   }
+  
 
   .grid-item:hover{
     transform: scale(1.05);
@@ -186,8 +179,8 @@ body {
     box-shadow: rgba(255, 255, 255, 0.12) 0 0 50px;
     */
   
-    border: rgb(156, 156, 156) 2px solid;
-  box-shadow: 0 4px 8px 0 rgb(134, 133, 133), 0 0px 50px 0px rgba(0, 0, 0, 0.19);
+    border: rgb(173, 168, 168) 2px solid;
+  box-shadow: 0 4px 8px 0 rgb(186, 185, 185), 0 0px 50px 0px rgba(0, 0, 0, 0.19);
  
 
   }
@@ -199,7 +192,7 @@ body {
     transition: transform 0.2s ease-in-out;
 
     border-radius: 5px;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
     padding-right: 250px;
     display: flex;
     flex-direction: column;
@@ -241,7 +234,10 @@ body {
     width: 225px;
     
   }
-
+  .grid-item button{
+    right: 0;
+    margin-left: 320px;
+  }
  
   .all::after {
     content: '';
@@ -279,3 +275,116 @@ body {
   progress ::-moz-progress-bar{
     background: red;
   }
+   /* Dropdown Button */
+.dropbtn {
+background-color: transparent;
+  color: #ddd;
+  font-size: 30px;
+  border: transparent ;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: end;
+  display: inline-block;
+  padding-right: 1000px;
+  
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+ 
+  min-width: 160px;
+ 
+  z-index: 1;
+  margin-top: 10px;
+  
+  margin-left: 165px;
+  
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  
+  
+  
+  
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;
+border-color: #45494d;
+box-shadow: 0px 8px 16px 0px rgba(225, 224, 224, 0.2);
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;} 
+
+.completed{
+  background-color: #3d8e4d;
+  border: #2d2d2d solid 2px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.remove{
+  background-color: red;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.drop_btn {
+  background-color: transparent;
+  color: rgb(241, 230, 230);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  
+}
+
+
+.header-right {
+  position: relative;
+  display: inline-block;
+  left: 0;
+}
+
+.drop_down-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(210, 209, 209, 0.2);
+  z-index: 3;
+  border-radius: 10px;
+  padding-inline: 10px;
+}
+
+.drop_down-content a {
+  color: rgb(4, 4, 4);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  right: 0;
+  padding-inline: 10px;
+  
+  
+}
+
+.drop_down-content a:hover {background-color: #cac7c7}
+
+.header-right:hover .drop_down-content {
+  display: block;
+}
+.logout:hover{
+  color: red;
+}
+
