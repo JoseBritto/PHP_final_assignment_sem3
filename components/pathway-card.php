@@ -19,10 +19,12 @@ const CONTINUE_BUTTON_TEXT = "Continue";
 const CONTINUE_TEXT_PLACEHOLDER = "#CONTINUE_TEXT#";
 const START_TEXT= "Start";
 const RESTART_TEXT= "Restart";
+const ENROLL_TEXT= "Enroll";
 const PLAY_BUTTON_CLASS = "las la-play";
 const PLAY_BUTTON_CLASS_PLACEHOLDER = "#PLAY_BUTTON_CLASS#";
 
 const RESET_BUTTON_CLASS = "las la-redo-alt";
+const ENROLL_BUTTON_CLASS = "las la-sign-in-alt";
 
 const HIDDEN_CLASS = "hidden";
 const HIDDEN_CLASS_PROGRESS_PLACEHOLDER = "#HIDDEN_CLASS_PROGRESS#";
@@ -43,7 +45,9 @@ echo renderPathwayCard(
     12
 );*/
 
-function renderPathwayCard($title, $description, $image, $authorName, $authorAvatar, $progress, $likes, $liked, $numCourses, $numChapters)
+function renderPathwayCard($title, $description, $image, $authorName, 
+                           $authorAvatar, $progress, $likes, $liked, 
+                           $numCourses, $numChapters, $enrolled)
 {
     ob_start();
     include 'templates/pathway-card.template.php';
@@ -58,11 +62,18 @@ function renderPathwayCard($title, $description, $image, $authorName, $authorAva
     $template = str_replace(LIKED_PLACEHOLDER, $liked ? LIKED_CLASS : "", $template);
     $template = str_replace(LIKED_ICON_CLASS_PLACEHOLDER, $liked ? LIKED_ICON_CLASS : NOT_LIKED_ICON_CLASS, $template);
     if($progress == 0){
-        $template = str_replace(CONTINUE_TEXT_PLACEHOLDER, START_TEXT, $template);
-        $template = str_replace(PLAY_BUTTON_CLASS_PLACEHOLDER, PLAY_BUTTON_CLASS, $template);
-        $template = str_replace(HIDDEN_CLASS_PROGRESS_PLACEHOLDER, HIDDEN_CLASS, $template);
-        $template = str_replace(HIDDEN_CLASS_INFO_PLACEHOLDER, "", $template);
-        $template = str_replace(INFO_TEXT_PLACEHOLDER, "$numCourses Courses &bull; $numChapters Chapters", $template);
+        if($enrolled) {
+            $template = str_replace(CONTINUE_TEXT_PLACEHOLDER, START_TEXT, $template);
+            $template = str_replace(PLAY_BUTTON_CLASS_PLACEHOLDER, PLAY_BUTTON_CLASS, $template);
+            $template = str_replace(HIDDEN_CLASS_PROGRESS_PLACEHOLDER, "", $template);
+            $template = str_replace(HIDDEN_CLASS_INFO_PLACEHOLDER, HIDDEN_CLASS, $template);
+        }else{
+            $template = str_replace(CONTINUE_TEXT_PLACEHOLDER, ENROLL_TEXT, $template);
+            $template = str_replace(PLAY_BUTTON_CLASS_PLACEHOLDER, ENROLL_BUTTON_CLASS, $template);
+            $template = str_replace(HIDDEN_CLASS_PROGRESS_PLACEHOLDER, HIDDEN_CLASS, $template);
+            $template = str_replace(HIDDEN_CLASS_INFO_PLACEHOLDER, "", $template);
+            $template = str_replace(INFO_TEXT_PLACEHOLDER, "$numCourses Courses &bull; $numChapters Chapters", $template);
+        }
     } else if ($progress < 100){
         $template = str_replace(CONTINUE_TEXT_PLACEHOLDER, CONTINUE_BUTTON_TEXT, $template);
         $template = str_replace(PLAY_BUTTON_CLASS_PLACEHOLDER, PLAY_BUTTON_CLASS, $template);
