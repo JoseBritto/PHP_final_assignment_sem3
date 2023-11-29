@@ -15,12 +15,27 @@ class User{
      * @var string
      */
     private $displayName;
+    /**
+     * @var int
+     */
+    private $userId;
+    /**
+     * @var string
+     */
+    private $profilePic;
+    /**
+     * @var int: UNIX timestamp|false
+     */
+    private $registeredTimestamp;
 
 
-    function __construct($username, $password, $displayName){
+    function __construct($userId, $username, $password, $displayName, $profilePic = NULL, $registeredAt = NULL){
         $this->username = $username;
         $this->password = $password;
         $this->displayName = $displayName;
+        $this->userId = $userId;
+        $this->profilePic = $profilePic;
+        $this->registeredTimestamp = strtotime($registeredAt);
     }
     
     /**
@@ -47,26 +62,27 @@ class User{
     }
     
     /**
-     * @param string $username
+     * @return int
      */
-    public function setUsername($username)
+    public function getUserId()
     {
-        $this->username = $username;
+        return $this->userId;
     }
     
     /**
-     * @param string $password
+     * @return string
      */
-    public function setPassword($password)
+    public function getProfilePic()
     {
-        $this->password = $password;
+        return $this->profilePic;
     }
     
     /**
-     * @param string $displayName
+     * @return int|false
      */
-    public function setDisplayName($displayName)
+    public function getRegisteredTimestamp()
     {
-        $this->displayName = $displayName;
+        return $this->registeredTimestamp;
     }
+    
 }

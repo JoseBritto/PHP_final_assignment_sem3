@@ -4,7 +4,7 @@ require_once "models/User.php";
 require_once "models/Database.php";
 
 /*
- * Call this function to attempt to log in a user.
+ * Call this function to log in a user.
  * Returns true if successful, false otherwise.
  */
 function login($username, $password)
