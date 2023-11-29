@@ -47,7 +47,7 @@
     </div>
     <div class="grid-container">
     <!-- Grid item 1 -->
-    <div class="grid-item">
+    <!--<div class="pathway-card">
       <div class="dropdown">
         <button onclick="myFunction('dropdown1')" class="dropbtn">&vellip;</button>
         <div id="dropdown1" class="dropdown-content">
@@ -62,97 +62,23 @@
       <div>
         <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.</p>
       </div>
-    </div>
+    </div>-->
 
-    <!-- Grid item 2 -->
-    <div class="grid-item">
-      <div class="dropdown">
-        <button onclick="myFunction('dropdown2')" class="dropbtn">&vellip;</button>
-        <div id="dropdown2" class="dropdown-content">
-          <a href="#" class="completed">Completed</a>
-          <a href="#" class="remove">Remove</a>
-        </div>
-      </div>
-      <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
-      <h4>PATHWAY</h4>
-      <h2>Getting a job</h2>
-      <progress value="20" max="100"></progress>
-      <div>
-        <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.</p>
-      </div>
-    </div>
-
-    <!-- Grid item 3 -->
-    <div class="grid-item">
-      <div class="dropdown">
-        <button onclick="myFunction('dropdown3')" class="dropbtn">&vellip;</button>
-        <div id="dropdown3" class="dropdown-content">
-          <a href="#" class="completed">Completed</a>
-          <a href="#" class="remove">Remove</a>
-        </div>
-      </div>
-      <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
-      <h4>PATHWAY</h4>
-      <h2>Getting a job</h2>
-      <progress value="20" max="100"></progress>
-      <div>
-        <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.</p>
-      </div>
-    </div>
-
-    <!-- Grid item 4 -->
-    <div class="grid-item">
-      <div class="dropdown">
-        <button onclick="myFunction('dropdown4')" class="dropbtn">&vellip;</button>
-        <div id="dropdown4" class="dropdown-content">
-          <a href="#" class="completed">Completed</a>
-          <a href="#" class="remove">Remove</a>
-        </div>
-      </div>
-      <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
-      <h4>PATHWAY</h4>
-      <h2>Getting a job</h2>
-      <progress value="20" max="100"></progress>
-      <div>
-        <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.</p>
-      </div>
-    </div>
-
-    <!-- Grid item 5 -->
-    <div class="grid-item">
-      <div class="dropdown">
-        <button onclick="myFunction('dropdown5')" class="dropbtn">&vellip;</button>
-        <div id="dropdown5" class="dropdown-content">
-          <a href="#" class="completed">Completed</a>
-          <a href="#" class="remove">Remove</a>
-        </div>
-      </div>
-      <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
-      <h4>PATHWAY</h4>
-      <h2>Getting a job</h2>
-      <progress value="20" max="100"></progress>
-      <div>
-        <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.</p>
-      </div>
-    </div>
-
-    <!-- Grid item 6 -->
-    <div class="grid-item">
-      <div class="dropdown">
-        <button onclick="myFunction('dropdown6')" class="dropbtn">&vellip;</button>
-        <div id="dropdown6" class="dropdown-content">
-          <a href="#" class="completed">Completed</a>
-          <a href="#" class="remove">Remove</a>
-        </div>
-      </div>
-      <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg" alt="img">
-      <h4>PATHWAY</h4>
-      <h2>Getting a job</h2>
-      <progress value="20" max="100"></progress>
-      <div>
-        <p> In a quaint town nestled between rolling hills, Sarah discovered an ancient bookshop that seemed untouched by time. Intrigued, she entered and found a mysterious tome bound in worn leather. As she opened it, the pages whispered forgotten tales of mystical lands, unveiling a world of enchantment and adventure she never imagined.</p>
-      </div>
-    </div>
+        <?php
+         include_once "components/pathway-card.php";
+         for ($i = 0; $i < 10; $i++) {
+             echo renderPathwayCard(
+                 "Becoming a meme",
+                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+                 "https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg",
+                 "Pepe Frog",
+                 "https://ui-avatars.com/api/?background=random&name=Pepe+Frog&rounded=true&size=64",
+                 ($i + 1) * 10,
+                 ($i + 5) * 120,
+                 $i%4 == 0
+             );
+         }
+        ?>
   </div>
   <script>
     // Keep track of the currently open dropdown

@@ -83,7 +83,7 @@ body {
 
   }
   
-  a {
+  li a {
     display: block;
     color: white;
     padding: 14px 16px;
@@ -97,7 +97,7 @@ body {
     
   }
   
-  a:hover {
+  li a:hover {
     background-color: #e1e1e1;
     color: black;
 
@@ -162,7 +162,6 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     overflow: hidden;
-    text-align: center;
     margin-top: 0;
     padding-top: 20px;
 
@@ -170,63 +169,7 @@ body {
   
 
   }
-  
-
-  .grid-item:hover{
-    transform: scale(1.05);
-    cursor: pointer;
-    /*
-    box-shadow: rgba(255, 255, 255, 0.12) 0 0 50px;
-    */
-  
-    border: rgb(173, 168, 168) 2px solid;
-  box-shadow: 0 4px 8px 0 rgb(186, 185, 185), 0 0px 50px 0px rgba(0, 0, 0, 0.19);
- 
-
-  }
-
- 
-  .grid-item{
-    background-color: #2a2b30;
-    padding: 20px;
-    transition: transform 0.2s ease-in-out;
-
-    border-radius: 5px;
-    padding-bottom: 50px;
-    padding-right: 250px;
-    display: flex;
-    flex-direction: column;
-    border: #4c4c4d 2px solid;
-    box-shadow: #2d2d2d 0px 3px 20px;
-    width: 100px;
-    color: rgb(180, 175, 175);
-    text-align: justify;
- 
-
-  }
-  
-  .grid-item img {
-    width: 100px; 
-    height: auto; 
-   
-    
-  }
-  .grid-item p{
-    padding-left: 10px;
-    overflow-y: auto; /* Enable vertical scrolling when content overflows */
-    max-height: 300px; 
-    width: 325px;
-    height: 100px;        
-  }
-  .grid-item h2{
-    width: 300px;
-    color: white;
-  }
-  .grid-item h4{
-    max-height: 0;
-    color: #aaa;
-  }
-  .my_stuff{
+   .my_stuff{
     color: #efeeee;
     padding-left: 10px;
   }
@@ -234,11 +177,6 @@ body {
     width: 225px;
     
   }
-  .grid-item button{
-    right: 0;
-    margin-left: 320px;
-  }
- 
   .all::after {
     content: '';
     display: block;
