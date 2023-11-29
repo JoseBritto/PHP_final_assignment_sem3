@@ -1,8 +1,8 @@
-<style>
-    <?php 
+<!--<style>
+    <?php /*
     require_once "assets/css/components/pathway-card.css"; //TODO: Change to relative path of index.php
-    ?>    
-</style>
+    */?>    
+</style>-->
 <!--TODO: Remove this below and place it in main php/html pages-->
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
