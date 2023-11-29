@@ -26,7 +26,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
     
-    $loggedIn = login($username, $password);
+    $loggedIn = login($username, $password, isset($_POST['remember']));
     if($loggedIn){
 /*        echo "Logged in successfully as ". $_SESSION['display_name'];*/
         header("Location: home.php");
@@ -74,14 +74,19 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         <p class="forgot"><a href="https://example.com">Forgot Password?</a></p>
         
         <div class="remember-me">
-            <input type="checkbox" name="remember" id="remember">
+            <input type="checkbox" name="remember" id="remember" checked>
             <label for="remember">Remember me</label><br>
     
         </div>
         <br>
         <input class="submit" type="submit" value="Login">
+        <p class="error">
+            <?php
+            if(isset($login_failed) && $login_failed)
+                echo "Invalid username/password.  Please try again" 
+            ?>
+        </p>
         <p>Don't have account? <a href="register.php">Register</a>.</p>
-        
     </form>
 </div>
 </body>

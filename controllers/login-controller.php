@@ -7,7 +7,7 @@ require_once "models/Database.php";
  * Call this function to log in a user.
  * Returns true if successful, false otherwise.
  */
-function login($username, $password)
+function login($username, $password, $remember = false)
 {
     // 1. Check if username exists in database
     // 2. If it does, check if the password matches
@@ -19,9 +19,12 @@ function login($username, $password)
     }
     $storedPasswordHash = $user->getPassword();
     if (password_verify($password, $storedPasswordHash)) {
-        $_COOKIE['username'] = $_SESSION['username'] = $user->getUsername();
+        $_SESSION['username'] = $user->getUsername();
         $_SESSION['display_name'] = $user->getDisplayName();
-        $_COOKIE['password'] = $storedPasswordHash; // We don't want to store the plaintext password in the cookie (or anywhere really)
+        if($remember) {
+            setcookie('username', $user->getUsername(), time() + (100 * 86400 * 30), "/"); // 100 * 86400 = 100 days
+            setcookie('password', $storedPasswordHash, time() + (100 * 86400 * 30), "/");
+        }
         return true;
     }
     return false;
