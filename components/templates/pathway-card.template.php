@@ -15,11 +15,13 @@
     <a href="#" class="author"><img src="https://via.placeholder.com/64" alt="">#AUTHOR_NAME#'s</a>
     <div class="title">#TITLE#</div> 
     <div class="progress-control">
-        <div class="progress">
+        <div class="progress #HIDDEN_CLASS_PROGRESS#">
             <div class="progress-bar" style="width: #PROGRESS_VALUE#%"></div>
         </div>
-        <div class="progress-text">#PROGRESS_VALUE#%</div>
-        <button> <i class="las la-play"></i> Continue</button>
+        <div class="progress-text  #HIDDEN_CLASS_PROGRESS#">#PROGRESS_VALUE#%</div>
+        
+        <span class="info-text #HIDDEN_CLASS_INFO_TEXT#">#INFO_TEXT#</span>
+        <button> <i class="#PLAY_BUTTON_CLASS#"></i> #CONTINUE_TEXT#</button>
     </div>
     <p class="description">
         #DESCRIPTION#

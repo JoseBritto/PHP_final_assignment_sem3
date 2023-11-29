@@ -122,6 +122,13 @@
     margin-right: auto;
 }
 
+.pathway-card .progress-control .info-text{
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: auto;
+}
+
 .pathway-card .progress-control button{
     border-radius: 5px;
     background-color: #535353;
@@ -183,4 +190,8 @@
 }
 .pathway-card .bottom button:hover{
     background-color: rgba(83, 83, 83, 0.64);
+}
+
+.hidden{
+    display: none;
 }
