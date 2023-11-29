@@ -193,3 +193,8 @@ a {
     margin-right: 350px;
     margin-left: 150px;
 }
+
+.error{
+    color: red;
+    font-size: 0.8em;
+}
