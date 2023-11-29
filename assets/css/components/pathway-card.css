@@ -1,0 +1,197 @@
+
+/*.pathway-card:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    border: rgb(173, 168, 168) 2px solid;
+    box-shadow: 0 4px 8px 0 rgb(186, 185, 185), 0 0px 50px 0px rgba(0, 0, 0, 0.19);
+
+
+}*/
+
+
+.pathway-card{
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    background-color: #2a2b30;
+    border-radius: 5px;
+    padding: 25px;
+    box-shadow: #2d2d2d 0 3px 20px;
+    width: 300px;
+    height: 400px;
+    color: rgb(180, 175, 175);
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.pathway-card .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-height: 40%;
+    margin-bottom: auto;
+    width: 100%;
+}
+
+.pathway-card img {
+    width: 100px;
+    display: block;
+    height: auto;
+    border-radius: 5px;
+}
+
+.pathway-card .top button{
+    border-radius: 5px;
+    background-color: rgba(83, 83, 83, 0.19);
+    padding: 5px 10px;
+    font-size: 1.2em;
+    font-weight: bolder;
+    border: none;
+    color: #a46ee7;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pathway-card .top button:hover{
+    background-color: rgba(83, 83, 83, 0.44);
+}
+
+.pathway-card .description{
+    padding-left: 10px;
+    overflow-y: hidden; /* NOT Enable vertical scrolling when content overflows */
+    max-height: 200px;
+    width: 100%;
+}
+.pathway-card .title{
+    font-weight: bold;
+    width: 300px;
+    color: white;
+    font-size: 1.5em;
+}
+
+.pathway-card .author{
+    font-size: 0.8em;
+    color: rgb(146, 143, 143);
+    margin-top: 5px;
+    margin-left: 3px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.pathway-card .author:hover, .pathway-card .author:focus{
+    text-decoration: underline;
+}
+
+.pathway-card .author img{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.pathway-card .progress-control{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pathway-card .progress-control .progress{
+    width: 120px;
+    height: 8px;
+    background-color: #535353;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.pathway-card .progress-control .progress-bar{
+    height: 100%;
+    background-color: #4ca5af;
+    border-radius: 5px;
+    transition: width 0.3s;
+}
+
+.pathway-card .progress-control .progress-text{
+    font-size: 0.8em;
+    color: white;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+.pathway-card .progress-control .info-text{
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+.pathway-card .progress-control button{
+    border-radius: 5px;
+    background-color: #535353;
+    padding: 7px 14px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.8em;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pathway-card .progress-control button:hover{
+    background-color: #4ca5af;
+}
+
+.pathway-card .bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pathway-card .bottom button{
+    border-radius: 10px;
+    background-color: rgba(83, 83, 83, 0.44);
+    padding: 7px 14px;
+    color: inherit;
+    font-size: inherit;
+    outline: none;
+    border: none;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pathway-card button i{
+    font-size: 1.2em;
+    margin-right: 5px;
+    transition: color 0.3s;
+}
+
+.pathway-card .like-btn.liked i{
+    color: #a46ee7;
+    font-size: 1.2em;
+    margin-right: 5px;
+    transition: color 0.3s;
+}
+.pathway-card .bottom .like-btn:hover{
+    color: #a46ee7;
+}
+.pathway-card .bottom button:hover{
+    background-color: rgba(83, 83, 83, 0.64);
+}
+
+.hidden{
+    display: none;
+}
