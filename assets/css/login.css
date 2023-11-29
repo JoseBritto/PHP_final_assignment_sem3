@@ -135,9 +135,7 @@ h2{
     color: aliceblue;
     text-align: left;
     font-family: 'Roboto', sans-serif;
-    /*
-    animation: slideTopToMiddle 1.5s ease;
-    */
+    min-width: 250px;
     width: 500px;
 }
 
