@@ -23,15 +23,15 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confi
         if($error_msg == "")
             $error_msg = getDisplayNameErrorMessage($submitted_display_name);
         $success = false;
-        if($error_msg == "")
+        if($error_msg == "") {
             $success = signup($submitted_username, $submitted_password, $submitted_display_name);
-        if($success){
-            login($submitted_username, $submitted_password, true);
-            header("Location: home.php");
-            exit;
-        }
-        else{
-            $error_msg = "Sign up failed";
+            if ($success) {
+                login($submitted_username, $submitted_password, true);
+                header("Location: home.php");
+                exit;
+            } else {
+                $error_msg = "Sign up failed";
+            }
         }
     }
 }
