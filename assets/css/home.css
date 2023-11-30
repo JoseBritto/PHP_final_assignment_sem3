@@ -35,7 +35,7 @@ body {
     transform: translate(0, -11px) rotate(45deg);
   }
   
-  header {
+  /*header {
     
     color: #efeeee;
     padding-left: 300px;
@@ -150,7 +150,7 @@ body {
     padding-left: 30px;
     padding-right: 30px;
     margin-left: 50px;
-  }
+  }*/
   .grid-container {
     display: flex;
     grid-template-columns: repeat(4, 1fr);
@@ -177,7 +177,7 @@ body {
     width: 225px;
     
   }
-  .all::after {
+  /*.all::after {
     content: '';
     display: block;
     height: 3px;
@@ -213,7 +213,7 @@ body {
   progress ::-moz-progress-bar{
     background: red;
   }
-   /* Dropdown Button */
+   !* Dropdown Button *!
 .dropbtn {
 background-color: transparent;
   color: #ddd;
@@ -223,7 +223,7 @@ background-color: transparent;
   border-radius: 50%;
 }
 
-/* The container <div> - needed to position the dropdown content */
+!* The container <div> - needed to position the dropdown content *!
 .dropdown {
   position: end;
   display: inline-block;
@@ -231,7 +231,7 @@ background-color: transparent;
   
 }
 
-/* Dropdown Content (Hidden by Default) */
+!* Dropdown Content (Hidden by Default) *!
 .dropdown-content {
   display: none;
   position: absolute;
@@ -245,7 +245,7 @@ background-color: transparent;
   
 }
 
-/* Links inside the dropdown */
+!* Links inside the dropdown *!
 .dropdown-content a {
   color: black;
   padding: 5px;
@@ -258,13 +258,13 @@ background-color: transparent;
   
 }
 
-/* Change color of dropdown links on hover */
+!* Change color of dropdown links on hover *!
 .dropdown-content a:hover {background-color: #ddd;
 border-color: #45494d;
 box-shadow: 0px 8px 16px 0px rgba(225, 224, 224, 0.2);
 }
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+!* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) *!
 .show {display:block;} 
 
 .completed{
@@ -276,7 +276,7 @@ box-shadow: 0px 8px 16px 0px rgba(225, 224, 224, 0.2);
   background-color: red;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-.drop_btn {
+.my_acc_drop_btn {
   background-color: transparent;
   color: rgb(241, 230, 230);
   padding: 16px;
@@ -334,4 +334,6 @@ box-shadow: 0px 8px 16px 0px rgba(225, 224, 224, 0.2);
 .logout:hover{
   color: red;
 }
+
+*/
 
