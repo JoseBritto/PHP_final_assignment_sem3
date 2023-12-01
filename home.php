@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/reset-all.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/components/pathway-card.css">
+    
   <title>PEPE_OnTop</title>
 </head>
 
@@ -66,18 +70,19 @@
 
         <?php
          include_once "components/pathway-card.php";
-         for ($i = 0; $i < 11; $i++) {
+         for ($i = 0; $i < 12; $i++) {
              echo renderPathwayCard(
                  "Becoming a meme",
                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
                  "https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg",
                  "Pepe Frog",
                  "https://ui-avatars.com/api/?background=random&name=Pepe+Frog&rounded=true&size=64",
-                 $i * 10,
+                  max(($i * 10 - 10), 0),
                  ($i + 5) * 120,
                  $i%4 == 0,
                  3,
-                 17
+                 17,
+                 $i%2 == 0
              );
          }
         ?>
