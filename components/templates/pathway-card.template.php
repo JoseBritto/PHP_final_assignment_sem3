@@ -9,7 +9,7 @@
 <div class="pathway-card">
     <div class="top">
         <img src="https://via.placeholder.com/150" alt="img">
-        <button>...</button>
+        <button>⋯</button>
     </div>
     
     <a href="#" class="author"><img src="https://via.placeholder.com/64" alt="">#AUTHOR_NAME#'s</a>

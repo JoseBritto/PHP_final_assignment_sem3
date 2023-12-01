@@ -302,6 +302,7 @@ box-shadow: 0px 8px 16px 0px rgba(225, 224, 224, 0.2);
   z-index: 3;
   border-radius: 10px;
   padding-inline: 10px;
+  
 }
 
 .drop_down-content a {
@@ -317,10 +318,18 @@ box-shadow: 0px 8px 16px 0px rgba(225, 224, 224, 0.2);
   
 }
 
-.drop_down-content a:hover {background-color: #cac7c7}
+.drop_down-content a:hover {background-color: #cac7c7;
+
+  border-radius: 10px;}
 
 .header-right:hover .drop_down-content {
   display: block;
+}
+.profile:hover{
+  color: #a46ee7;
+}
+.Settings:hover{
+  color: #a46ee7;
 }
 .logout:hover{
   color: red;
