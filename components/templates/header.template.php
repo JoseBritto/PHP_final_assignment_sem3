@@ -49,7 +49,7 @@
         max-height: 50px;
         white-space: nowrap;
     }
-    .drop_down-content{
+    .drop-down-content{
         position: absolute;
         background-color: #2A2B30;
         width: fit-content;
@@ -64,7 +64,7 @@
         transform-origin: top center;
     }
     
-    .drop_down-content.show{
+    .drop-down-content.show{
         animation: acc-options-show 0.5s ease-in-out;
     }
     @keyframes acc-options-show{
@@ -79,7 +79,7 @@
         }
     }
     
-    header .drop_down-content a{
+    header .drop-down-content a{
         color: inherit;
         text-decoration: none;
         display: block;
@@ -90,15 +90,15 @@
         border-radius: 10px;
     }
     
-    header .drop_down-content a:hover{
+    header .drop-down-content a:hover{
         background-color: rgba(83, 83, 83, 0.44);
         border-radius: 8px;
     }
     
-    header .drop_down-content a.action-danger{
+    header .drop-down-content a.action-danger{
         color: #FF0000;
     }
-    header .drop_down-content a.action-danger:hover{
+    header .drop-down-content a.action-danger:hover{
         background-color: rgba(255, 0, 0, 0.44);
     }
     
@@ -116,10 +116,16 @@
             #DISPLAY_NAME#
             <i class="las la-angle-down"></i>
         </button>
-        <div class="drop_down-content hidden">
-            <a href="#" class="my-acc-action">Profile</a><hr>
-            <a href="#" class="my-acc-action">Settings</a><hr>
-            <a href="logout.php" class="my-acc-action action-danger">Logout</a>
+        <div class="drop-down-content hidden">
+            <div class="logged-in #LOGGED_IN_HIDDEN_CLASS#">
+                <a href="#" class="my-acc-action">Profile</a><hr>
+                <a href="#" class="my-acc-action">Settings</a><hr>
+                <a href="logout.php" class="my-acc-action action-danger">Logout</a>
+            </div>
+            
+            <div class="logged-out #LOGGED_OUT_HIDDEN_CLASS#">
+                <a href="login.php" class="my-acc-action">Login</a>
+            </div>
         </div>
     </div>
 </header>
@@ -127,7 +133,7 @@
 <script type="application/javascript">
 
     function accDropdownClick(isFocusOut = false) {
-        let dropdown = document.querySelector('header .drop_down-content');
+        let dropdown = document.querySelector('header .drop-down-content');
         if(isFocusOut){
             dropdown.classList.add('hidden');
             dropdown.classList.remove('show');
