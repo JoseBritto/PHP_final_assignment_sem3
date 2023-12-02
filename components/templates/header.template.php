@@ -6,24 +6,26 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
         background-color: #303138;
         color: #EFEEEE;
-        padding: 15px;
+        padding: 1% 5% 1% 5%;
         text-align: center;
         height: 40px;
-        width: 100%;
+        width: 90%;
         
         font-family: 'Roboto', sans-serif;
         font-weight: normal;
         
         /*box-shadow: 0px 0px 10px 0px rgb(36, 37, 42, 0.2);
         */position: fixed;
+        max-width: 100vw;
     }
     
     header h1 {
         font-size: 1.5em;
-        margin-left: 160px;
+        /*
+        margin-left: 10%;
+        */
         margin-right: auto;
     }
     
@@ -34,7 +36,6 @@
     
     .my-acc-drop-btn{
         display: inline-block;
-        margin-right: 160px;
         padding: 12px 18px;
         border-radius: 50px;
         background-color: #2A2B30;
@@ -57,7 +58,7 @@
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         z-index: 2;
         padding: 12px;
-        right: 162px;
+        right: 10px;
         top: 50px;
         border-radius: 10px;
         
