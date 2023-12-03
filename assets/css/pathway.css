@@ -1,0 +1,258 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #303138;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+#top .image {
+    width: 180px;
+    height: 180px;
+    padding: 20px;
+    margin-right: 5%;
+}
+
+#top .image img {
+    width: 100%;
+    height: 100%;
+}
+
+#top .main-area {
+    font-size: 1.5em;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+#top .main-area .progress-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#top .main-area .progress-control .progress{
+    width: 280px;
+    height: 8px;
+    background-color: #535353;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#top .main-area .progress-control .progress .progress-bar{
+    height: 100%;
+    background-color: #a46ee7;
+    border-radius: 5px;
+    transition: width 0.5s;
+}
+
+#top .main-area .progress-control .progress-text{
+    font-size: 0.65em;
+    color: #98999B;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#top .main-area .progress-control .cancel-btn{
+    background-color: rgba(161, 5, 5, 0.33);
+    color: #ce0000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 0.65em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+#top .main-area .progress-control .cancel-btn:hover{
+    background-color: rgba(161, 5, 5, 0.55);
+}
+
+#top .main-area .progress-control .cancel-btn:active{
+    background-color: rgba(161, 5, 5, 0.78);
+}
+
+#top .main-area .progress-control .fork-btn{
+    background-color: rgba(83, 83, 83, 0.37);
+    color: #dbd2d2;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 0.65em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 20px;
+}
+
+#top .main-area .progress-control .fork-btn:hover{
+    background-color: rgba(178, 78, 210, 0.78);
+}
+
+#top .main-area .progress-control .fork-btn:active{
+    background-color: rgba(178, 78, 210, 1);
+}
+
+hr {
+    border: 1px solid #535353;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    color: #B4AFAF;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+main h2{
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+main .links{
+    width: 100%;
+    margin-top: 50px;
+}
+main .links .link-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 7vh;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+main .links .not-done{
+    border: rgba(73, 72, 73, 0.55) 5px solid;
+    background-color: rgba(53, 53, 53, 0.25);
+}
+
+main .links .done{
+    border: rgba(178, 78, 210, 0.55) 5px solid;
+    background-color: rgba(145, 65, 172, 0.25);
+}
+
+main .links .link-box a{
+    color: #B4AFAF;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-left: 10%;
+}
+
+main .links .link-box a span i{
+    font-size: 0.8em;
+    margin-left: 2px;
+}
+
+
+/* Reset default checkbox styles */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Define the custom checkbox style */
+input[type="checkbox"]::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Add background-color transition */
+    border: rgba(73, 72, 73, 0.55) 5px solid; /* Change border color to match the parent */
+    background-color: rgba(73, 72, 73, 0.55); /* Change background color to match the parent */
+}
+
+/* Style for checked state */
+input[type="checkbox"]:checked::before {
+    background-color:rgba(178, 78, 210, 0.78); /* Fill color for the checked state */
+    border-color: rgba(145, 65, 172, 0.55); /* Change the border color for hover effect */
+}
+
+/* Hover effect */
+input[type="checkbox"]:hover::before {
+    border-color: rgba(166, 75, 196, 0.47); /* Change the border color for hover effect */
+}
+
+.bottom{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.bottom .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 50%;
+}
+
+.bottom .buttons .btn{
+    background-color: rgba(83, 83, 83, 0.37);
+    color: #dbd2d2;/*
+    border: solid 3px #464646;*/
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 0.85em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bottom .buttons .btn:hover{
+    background-color:rgba(178, 78, 210, 0.78);
+}
+
+.bottom .buttons .btn:active{
+    background-color:rgba(178, 78, 210, 1);
+}
+
+.bottom .buttons .btn:disabled{
+    background-color: rgba(53, 53, 53, 0.29);
+    color: #dbd2d2;
+    cursor: not-allowed;
+}

@@ -221,6 +221,20 @@ function isValidPassword($password){
 
 
 /*
+ * Call this function to get the user id of the logged in user.
+ * Returns the user id if they are logged in, false otherwise.
+ */
+function getUserId($username)
+{
+    $user = Database::getInstance()->tryGetUser($username);
+    if ($user == null) {
+        return false;
+    }
+    return $user->getUserId();
+
+}
+
+/*
  * Call this function to check if logged-in user is an admin.
  * Returns true if they are, false otherwise.
  */

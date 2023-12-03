@@ -12,18 +12,20 @@
 </head>
 
 <body>
-<header>
-    <h1>Pathways</h1>
-    <div class="header-right">
-    <button class="drop_btn">My Account</button>
-      <div class="drop_down-content">
-        <a href="#" class="profile">Profile</a><hr>
-        <a href="#" class="settings">Settings</a><hr>
-        <a href="#" class="logout">Logout</a>
-      </div>
-</div>
-  </header>
-<div class="headleft">
+<?php
+require_once "components/header.php";
+require_once "controllers/login-controller.php";
+if(isLoggedIn()) {
+    echo getHeader("Home", true, getDisplayName());
+} else {
+    echo getHeader("Home", false);
+}
+?>
+<br>
+<br>
+<br>
+<br>
+<!--<div class="headleft">
   <nav class="leftnav">
     <h2 class="my_stuff">MY STUFF</h2>
     <ul>
@@ -49,7 +51,8 @@
       
     
     </div>
-    <div class="grid-container">
+--> 
+<div class="grid-container">
     <!-- Grid item 1 -->
     <!--<div class="pathway-card">
       <div class="dropdown">
@@ -87,7 +90,7 @@
          }
         ?>
   </div>
-  <script>
+  <!--<script>
     // Keep track of the currently open dropdown
     var openDropdown = null;
 
@@ -114,6 +117,6 @@
         }
       }
     };
-  </script>
+  </script>-->
 </body>
 </html>
