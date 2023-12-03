@@ -51,7 +51,8 @@ if(isLoggedIn()) {
       
     
     </div>
--->    <div class="grid-container">
+--> 
+<div class="grid-container">
     <!-- Grid item 1 -->
     <!--<div class="pathway-card">
       <div class="dropdown">

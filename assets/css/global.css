@@ -12,3 +12,12 @@
     
 }
 
+*::selection {
+    background-color: #9040AB;
+    color: #fff;
+}
+
+*::-moz-selection {
+    background-color: #9040AB;
+    color: #fff;
+}
