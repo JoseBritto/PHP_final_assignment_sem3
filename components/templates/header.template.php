@@ -2,16 +2,17 @@
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
     
     header {
+        box-sizing: border-box;
         margin: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: #303138;
         color: #EFEEEE;
-        padding: 40px 5% 10px 5%;
+        padding: 40px 5% 20px 5%;
         text-align: center;
         height: 40px;
-        width: 90%;
+        width: 100%;
         
         font-family: 'Roboto', sans-serif;
         font-weight: normal;
