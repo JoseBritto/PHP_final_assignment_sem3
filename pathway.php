@@ -1,3 +1,37 @@
+<?php
+require_once "controllers/login-controller.php";
+require_once "controllers/pathway-controller.php";
+
+$isLoggedIn = isLoggedIn();
+$username = getUsername();
+$userId = getUserId($username);
+
+$pathway = getPathway($userId, $_GET['pathway_id'] );
+
+if($pathway == null){
+    // TODO: Redirect to 404 page
+}
+
+$pathwayTitle = $pathway->pathway_title;
+$pathwayId = $pathway->pathway_id;
+
+$currentSectionNumber = 1;
+
+if(isset($_GET['section'])){
+    $currentSectionNumber = $_GET['section'];
+}
+
+$currentSection = getSection($pathwayId, $currentSectionNumber);
+
+if($currentSection == null){
+    // TODO: Redirect to 404 page
+}
+
+$links = getLinks($currentSection->section_id);
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,11 +48,10 @@
 
 <?php
 require_once "components/header.php";
-require_once "controllers/login-controller.php";
-if(isLoggedIn()) {
-    echo getHeader("Becoming a meme", true, getDisplayName());
+if($isLoggedIn) {
+    echo getHeader( $pathwayTitle, true, getDisplayName());
 } else {
-    echo getHeader("Becoming a meme", false);
+    echo getHeader($pathwayTitle, false);
 }
 ?>
 
@@ -31,13 +64,15 @@ if(isLoggedIn()) {
         <img src="assets/css/img/web-design.png" alt="alt">
     </div>
     <div class="main-area">
-        <h1>Getting a job</h1>
+        
+        <h1><?php echo $pathwayTitle ?></h1>
         <div class="progress-control">
             <div class="progress">
-                <div class="progress-bar" style="width: 50%"></div>
+                <div class="progress-bar" style="width: <?php echo getProgress($userId, $pathwayId) ?>%"></div>
             </div>
-            <div class="progress-text">50%</div>
+            <div class="progress-text"><?php echo getProgress($userId, $pathwayId) ?>%</div>
             <button class="cancel-btn"> <i class="las la-trash-alt"></i> Remove</button>
+            <button class="fork-btn"> <i class="las la-code-branch"></i> Fork</button>
         </div>
 </section>
 
@@ -45,48 +80,40 @@ if(isLoggedIn()) {
 
 <main>
     <section id="description">
-        <h2>Section 1 - Lorem Ipsum</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, adipisci alias aliquid amet
-            architecto asperiores atque autem blanditiis consequatur cumque cupiditate delectus deleniti dicta
-            dignissimos dolor doloremque doloribus ducimus ea earum eius eligendi eos error esse est et eum
-            exercitationem explicabo facere fugiat fugit harum hic id illum impedit in incidunt ipsa ipsum
-            laboriosam laborum laudantium libero magnam magni maiores maxime minima minus molestiae mollitia
-            necessitatibus nemo neque nihil nisi nobis non nostrum nulla numquam obcaecati odio officia officiis
-            omnis optio pariatur perferendis perspiciatis placeat porro possimus praesentium provident quae quas
-            quasi quia quibusdam quisquam quod quos ratione recusandae rem repellat repellendus reprehenderit
-            repudiandae rerum saepe sapiente sequi similique sint sit soluta sunt suscipit tempora temporibus
-            tenetur totam ullam unde ut vel veniam veritatis voluptas voluptate voluptatem voluptates voluptatum
-            voluptatibus voluptatum.
-        </p>
+        <h2>Section <?php echo "$currentSection->order - $currentSection->section_title"?></h2>
+        <p> <?php echo $currentSection->section_description ?> </p>
     </section>
     
     <section class="links">
-
-        <div class="not-done link-box">
-            <div class="checkbox">
-                <input type="checkbox" class="completed-check">
-            </div>
-            <a href="https://youtube.com" target="_blank">
-                <span>How to market yourself (video) <i class="las la-external-link-alt"></i> </span>
-            </a>
-        </div>
         
-        <div class="not-done link-box">
-            <div class="checkbox">
-                <input type="checkbox" class="completed-check">
-            </div>
-            <a href="https://youtube.com" target="_blank">
-                <span>How to market yourself <i class="las la-external-link-alt"></i> </span>
-            </a>
-        </div>
+        
+        <?php
+        foreach ($links as $link) {
+            $done = $link->completed ? "done" : "not-done";
+            $checked = $link->completed ? "checked" : "";
+            $url = $link->url;
+            $text = $link->text;
+            $id = $link->id;
+            if($text == null)
+                $text = $url;
+            echo "<div class='$done link-box' id='link-box-$id'>
+                        <div class='checkbox'>
+                            <input type='checkbox' class='completed-check' $checked>
+                        </div>
+                        <a href='$url' target='_blank'>
+                            <span>$text <i class='las la-external-link-alt'></i> </span>
+                        </a>
+                    </div>";
+        }
+        ?>
     </section>
     
     <section class="bottom">
         <div class="buttons">
-            <button class="btn">
+            <button class="btn prev-btn">
                 Previous
             </button>
-            <button class="btn">
+            <button class="btn next-btn">
                 Next
             </button>
         </div>
@@ -95,21 +122,76 @@ if(isLoggedIn()) {
 
 
 <script type="application/javascript">
+    
+    const isLoggedIn = <?php echo $isLoggedIn ? "true" : "false" ?>;
+    
     addEventListener("load", (event) => {
         
-        let isLinkBoxBeingClicked = false;
-        
-        // Add event listeners to all checkboxes
+        // All checkboxes
         const checkboxes = document.querySelectorAll(".completed-check");
+        
+        // Disable next-btn if all link-boxes are not checked
+        const nextBtn = document.querySelector(".next-btn");
+        nextBtn.disabled = false;
+        checkboxes.forEach((checkbox) => {
+            if(!checkbox.checked){
+                nextBtn.disabled = true;
+                return;
+            }
+        });
+
+
+        //Set links for next and previous buttons
+        const prevBtn = document.querySelector(".prev-btn");
+        const currentSectionNumber = <?php echo $currentSectionNumber ?>;
+        if(currentSectionNumber === 1){
+            prevBtn.disabled = true;
+        } else {
+            prevBtn.addEventListener("click", (event) => {
+                window.location.href = `pathway.php?pathway_id=<?php echo $pathwayId ?>&section=${currentSectionNumber - 1}`;
+            });
+        }
+        nextBtn.addEventListener("click", (event) => {
+            window.location.href = `pathway.php?pathway_id=<?php echo $pathwayId ?>&section=${currentSectionNumber + 1}`;
+        });
+        
+
+        // Add event listeners to all checkboxes
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener("change", (event) => {
+
+                nextBtn.disabled = false;
+                checkboxes.forEach((checkbox) => {
+                    if(!checkbox.checked){
+                        nextBtn.disabled = true;
+                        return;
+                    }
+                });                
+                
                 const parent = event.target.parentElement.parentElement;
                 if(event.target.checked) {
                     parent.classList.add("done");
                     parent.classList.remove("not-done");
+                    
+                    // Send request to server saying checkbox was checked using POST request
+                    if(isLoggedIn){
+                        const xhr = new XMLHttpRequest();
+                        xhr.open("POST", "notify-link-completion.php", true);
+                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        xhr.send(`action=checked&user_id=<?php echo $userId ?>&section_id=<?php echo $currentSection->section_id ?>&link_id=${parent.id.replace("link-box-", "")}`);
+                    }
+                    
                 } else {
                     parent.classList.add("not-done");
                     parent.classList.remove("done");
+                    
+                    // Send request to server saying checkbox was unchecked using POST request
+                    if(isLoggedIn){
+                        const xhr = new XMLHttpRequest();
+                        xhr.open("POST", "notify-link-completion.php", true);
+                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        xhr.send(`action=unchecked&user_id=<?php echo $userId ?>&section_id=<?php echo $currentSection->section_id ?>&link_id=${parent.id.replace("link-box-", "")}`);
+                    }
                 }
                 event.stopPropagation();
             });
