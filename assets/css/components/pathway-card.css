@@ -75,6 +75,8 @@
     margin: 5px;
     color: white;
     font-size: 1.5em;
+    overflow: hidden;
+    max-height: 60px;
 }
 
 .pathway-card .author{

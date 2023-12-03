@@ -139,15 +139,24 @@
 
 <script type="application/javascript">
 
-    function accDropdownClick(isFocusOut = false) {
+    // Add event listener to document to close dropdown when clicked outside
+    document.addEventListener('click', function(event) {
         let dropdown = document.querySelector('header .drop-down-content');
-        if(isFocusOut){
-            dropdown.classList.add('hidden');
+        let dropdownBtn = document.querySelector('header .my-acc-drop-btn');
+        let dropdownArrow = document.querySelector('header .my-acc-drop-btn i.las');
+        
+        if(!dropdown.contains(event.target) && !dropdownBtn.contains(event.target)){
             dropdown.classList.remove('show');
-        } else {
-            dropdown.classList.toggle('show');
-            dropdown.classList.toggle('hidden');
+            dropdown.classList.add('hidden');
+            dropdownArrow.classList.remove('la-angle-up');
+            dropdownArrow.classList.add('la-angle-down');
         }
+    });
+    
+    function accDropdownClick() {
+        let dropdown = document.querySelector('header .drop-down-content');
+        dropdown.classList.toggle('show');
+        dropdown.classList.toggle('hidden');
         
         // Rotate the dropdown arrow icon
         let arrow = document.querySelector('header .my-acc-drop-btn i.las');
