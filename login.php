@@ -28,8 +28,12 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     
     $loggedIn = login($username, $password, isset($_POST['remember']));
     if($loggedIn){
+        $redirect = "home.php";
+        if(isset($_GET['redirect'])){
+            $redirect = $_GET['redirect'];
+        }
 /*        echo "Logged in successfully as ". $_SESSION['display_name'];*/
-        header("Location: home.php");
+        header("Location: $redirect");
         exit;
     }
 /*    echo "Failed to log in";*/
@@ -60,7 +64,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     <h1>Log In</h1>
     
     <h2>Welcome back, Adventurer!</h2>
-    <form action="login.php" method="post">
+    <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
         <div class="input-field">
             <input type="text" id="username" name="username" required>
             <label for="username">Username:</label>
