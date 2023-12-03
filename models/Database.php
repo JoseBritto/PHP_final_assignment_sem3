@@ -130,9 +130,13 @@ class Database
         return null;
     }
     
-    public function getLinks($sectionId)
+    public function getLinks($sectionId, $userId = null)
     {
-        $sql = "SELECT section_links.id, section, url, text, `order`, clicked FROM section_links JOIN link_clicks ON section_links.id = link_clicks.link WHERE section = '$sectionId' ORDER BY `order` ASC;";
+        if($userId == null)
+            $sql = "SELECT section_links.id, section, url, text, `order`, '0' AS clicked FROM section_links WHERE section = '$sectionId' ORDER BY `order` ASC;";
+        else
+            $sql = "SELECT section_links.id, section, url, text, `order`, clicked FROM section_links JOIN link_clicks ON section_links.id = link_clicks.link WHERE section = '$sectionId' AND user = '$userId' ORDER BY `order` ASC;";
+/*        $sql = "SELECT section_links.id, section, url, text, `order`, clicked FROM section_links JOIN link_clicks ON section_links.id = link_clicks.link WHERE section = '$sectionId' ORDER BY `order` ASC;";*/
         $result = $this->conn->query($sql);
         $links = array();
         while($row = $result->fetch_assoc()){

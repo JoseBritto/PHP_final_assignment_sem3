@@ -27,8 +27,12 @@ if($currentSection == null){
     // TODO: Redirect to 404 page
 }
 
-$links = getLinks($currentSection->section_id);
-
+if($isLoggedIn)
+    $links = getLinks($currentSection->section_id, $userId);
+else{
+    Header("Location: login.php?redirect=".urlencode($_SERVER['REQUEST_URI']));
+    exit();
+}
 ?>
 
 

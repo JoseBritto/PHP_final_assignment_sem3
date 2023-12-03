@@ -30,7 +30,7 @@ function getSection($pathwayId, $sectionNumber)
  * @param $sectionId
  * @return Link[]
  */
-function getLinks($sectionId)
+function getLinks($sectionId, $userId = null)
 {
-    return Database::getInstance()->getLinks($sectionId);
+    return Database::getInstance()->getLinks($sectionId, $userId);
 }
