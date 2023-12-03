@@ -53,12 +53,14 @@ else{
 <?php
 require_once "components/header.php";
 if($isLoggedIn) {
-    echo getHeader( $pathwayTitle, true, getDisplayName());
+    echo getHeader( "Pathway", true, getDisplayName());
 } else {
-    echo getHeader($pathwayTitle, false);
+    echo getHeader("Pathway", false);
 }
 ?>
 
+<br>
+<br>
 <br>
 <br>
 
