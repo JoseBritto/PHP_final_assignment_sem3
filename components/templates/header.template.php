@@ -8,7 +8,7 @@
         align-items: center;
         background-color: #303138;
         color: #EFEEEE;
-        padding: 1% 5% 1% 5%;
+        padding: 40px 5% 10px 5%;
         text-align: center;
         height: 40px;
         width: 90%;
