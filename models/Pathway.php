@@ -8,6 +8,7 @@ class Pathway
     public $pathway_description;
     public $pathway_image;
     public $created_at;
+    public $progress;
 
     public function __construct(mixed $pathway_id, mixed $owner_id, mixed $pathway_title, mixed $pathway_description, mixed $pathway_image, mixed $created_at)
     {
@@ -17,5 +18,10 @@ class Pathway
         $this->pathway_description = $pathway_description;
         $this->pathway_image = $pathway_image;
         $this->created_at = $created_at;
+    }
+
+    public function setProgress(mixed $progress)
+    {
+        $this->progress = $progress;
     }
 }

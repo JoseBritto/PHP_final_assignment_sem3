@@ -31,6 +31,9 @@ const HIDDEN_CLASS_PROGRESS_PLACEHOLDER = "#HIDDEN_CLASS_PROGRESS#";
 const HIDDEN_CLASS_INFO_PLACEHOLDER = "#HIDDEN_CLASS_INFO_TEXT#";
 
 const INFO_TEXT_PLACEHOLDER = "#INFO_TEXT#";
+
+const URL_PLACEHOLDER = "#URL#";
+
 /*
 echo renderPathwayCard(
     "Pathway Title",
@@ -47,7 +50,7 @@ echo renderPathwayCard(
 
 function renderPathwayCard($title, $description, $image, $authorName, 
                            $authorAvatar, $progress, $likes, $liked, 
-                           $numCourses, $numChapters, $enrolled)
+                           $numCourses, $numChapters, $enrolled, $url)
 {
     ob_start();
     include 'templates/pathway-card.template.php';
@@ -60,6 +63,7 @@ function renderPathwayCard($title, $description, $image, $authorName,
     $template = str_replace(PROGRESS_PLACEHOLDER, $progress, $template);
     $template = str_replace(LIKES_PLACEHOLDER, $likes, $template);
     $template = str_replace(LIKED_PLACEHOLDER, $liked ? LIKED_CLASS : "", $template);
+    $template = str_replace(URL_PLACEHOLDER, $url, $template);
     $template = str_replace(LIKED_ICON_CLASS_PLACEHOLDER, $liked ? LIKED_ICON_CLASS : NOT_LIKED_ICON_CLASS, $template);
     if($progress == 0){
         if($enrolled) {

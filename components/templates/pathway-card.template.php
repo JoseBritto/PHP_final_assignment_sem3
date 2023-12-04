@@ -21,7 +21,7 @@
         <div class="progress-text  #HIDDEN_CLASS_PROGRESS#">#PROGRESS_VALUE#%</div>
         
         <span class="info-text #HIDDEN_CLASS_INFO_TEXT#">#INFO_TEXT#</span>
-        <button> <i class="#PLAY_BUTTON_CLASS#"></i> #CONTINUE_TEXT#</button>
+        <button onclick="location.href='#URL#'"> <i class="#PLAY_BUTTON_CLASS#"></i> #CONTINUE_TEXT#</button>
     </div>
     <p class="description">
         #DESCRIPTION#

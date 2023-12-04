@@ -9,7 +9,7 @@
         align-items: center;
         background-color: #303138;
         color: #EFEEEE;
-        padding: 40px 5% 20px 5%;
+        padding: 40px 5% 40px 5%;
         text-align: center;
         height: 40px;
         width: 100%;
@@ -27,7 +27,6 @@
         /*
         margin-left: 10%;
         */
-        margin-right: auto;
     }
     
     .header-right {
@@ -113,11 +112,44 @@
         margin: 4px 0;
     }
     
+    header nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 10%;
+        margin-right: auto;
+    }
+    
+    header .header-option{
+        color: inherit;
+        text-decoration: none;
+        font-size: 1.2em;
+        margin: 0 10px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-weight: 700;
+    }
+    
+    header .header-option:hover{
+        background-color: rgba(83, 83, 83, 0.44);
+        border-radius: 8px;
+    }
+    
+    header .header-option.selected{
+        background-color: rgba(83, 83, 83, 0.44);
+        border-radius: 8px;
+    }
+    
 </style>
 
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 <header>
     <h1>#TITLE#</h1>
+    <nav class="header-left">
+        <a href="home.php?option=explore" class="header-option">Explore</a>
+        <a href="home.php?option=saved" class="header-option">Saved</a>
+        <a href="home.php?option=my-stuff" class="header-option">My Stuff</a>
+    </nav>
     <div class="header-right">
         <button class="my-acc-drop-btn" onclick="accDropdownClick()">
             #DISPLAY_NAME#
