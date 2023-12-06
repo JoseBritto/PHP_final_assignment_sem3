@@ -8,6 +8,46 @@ if(!isLoggedIn()){
 ?>
 
 
+<?php
+
+$target_dir = "uploads/pathway-images/";
+$target_file = $target_dir . basename($_FILES["pathway-image"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+if(isset($_POST["pathway-title"]) && isset($_POST["pathway-description"]) && isset($_FILES["pathway-image"])){
+    $pathwayTitle = $_POST["pathway-title"];
+    $pathwayDescription = $_POST["pathway-description"];
+    $pathwayImage = $_FILES["pathway-image"]["name"];
+    $userId = getUserId(getUsername());
+    if ($_FILES["pathway-image"]["size"] > 5000000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    } elseif($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+        echo "Sorry, only JPG, JPEG, PNG files are allowed.";
+        $uploadOk = 0;
+    } elseif($pathwayTitle == "" || $pathwayDescription == ""){
+        echo "Please fill in all the fields";
+        $uploadOk = 0;
+    } else {
+        $db = Database::getInstance();
+        $db->addPathway($userId, $pathwayTitle, $pathwayDescription, $pathwayImage);
+        $pathwayId = $db->getPathwayId($userId, $pathwayTitle, $pathwayDescription, $pathwayImage);
+        $pathwayImage = $pathwayId.".".$imageFileType;
+        $target_file = $target_dir . $pathwayImage;
+        $db->updatePathwayImage($pathwayId, $target_file);
+        if (move_uploaded_file($_FILES["pathway-image"]["tmp_name"], $target_file)) {
+            /*header("Location: pathway.php?id=$pathwayId");*/
+        } else {
+            /*echo "Sorry, there was an error uploading your file.";*/
+        }
+        header("Location: pathway.php?pathway_id=$pathwayId");
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,44 +149,6 @@ if(isLoggedIn()) {
 <br>
 <br>
 
-<?php
-
-$target_dir = "uploads/pathway-images/";
-$target_file = $target_dir . basename($_FILES["pathway-image"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-if(isset($_POST["pathway-title"]) && isset($_POST["pathway-description"]) && isset($_FILES["pathway-image"])){
-    $pathwayTitle = $_POST["pathway-title"];
-    $pathwayDescription = $_POST["pathway-description"];
-    $pathwayImage = $_FILES["pathway-image"]["name"];
-    $userId = getUserId(getUsername());
-    if ($_FILES["pathway-image"]["size"] > 5000000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    } elseif($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-        echo "Sorry, only JPG, JPEG, PNG files are allowed.";
-        $uploadOk = 0;
-    } elseif($pathwayTitle == "" || $pathwayDescription == ""){
-        echo "Please fill in all the fields";
-        $uploadOk = 0;
-    } else {
-        $db = Database::getInstance();
-        $db->addPathway($userId, $pathwayTitle, $pathwayDescription, $pathwayImage);
-        $pathwayId = $db->getPathwayId($userId, $pathwayTitle, $pathwayDescription, $pathwayImage);
-        $pathwayImage = $pathwayId.".".$imageFileType;
-        $target_file = $target_dir . $pathwayImage;
-        $db->updatePathwayImage($pathwayId, $target_file);
-        if (move_uploaded_file($_FILES["pathway-image"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars( basename( $_FILES["pathway-image"]["name"])). " has been uploaded.";
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-        }
-        header("Location: pathway.php?id=$pathwayId");
-    }
-}
-
-?>
 
 <main>
     <form action="create-pathway.php" method="POST" enctype="multipart/form-data">

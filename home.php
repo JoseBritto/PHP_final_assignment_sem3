@@ -96,4 +96,7 @@ if(isLoggedIn()) {
 
  
 </body>
+<footer>
+    <a href="assets/readme.pdf">README</a>    
+</footer>
 </html>
