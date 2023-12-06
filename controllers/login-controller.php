@@ -7,7 +7,7 @@ require_once "models/Database.php";
  * Call this function to log in a user.
  * Returns true if successful, false otherwise.
  */
-function login($username, $password, $remember = false)
+function login($username, $password, $remember = false, $passwordIsHashed = false)
 {
     // 1. Check if username exists in database
     // 2. If it does, check if the password matches
@@ -18,7 +18,8 @@ function login($username, $password, $remember = false)
         return false;
     }
     $storedPasswordHash = $user->getPassword();
-    if (password_verify($password, $storedPasswordHash)) {
+    $passwordMatches = $passwordIsHashed ? $password == $storedPasswordHash : password_verify($password, $storedPasswordHash);
+    if ($passwordMatches) {
         $_SESSION['username'] = $user->getUsername();
         $_SESSION['display_name'] = $user->getDisplayName();
         if($remember) {
@@ -35,22 +36,11 @@ function login($username, $password, $remember = false)
  * Returns true if successful, false otherwise.
  */
 function logout($force = false){
-    if($force){
-        unset($_SESSION['username']);
-        unset($_SESSION['display_name']);
-        unset($_COOKIE['username']);
-        unset($_COOKIE['password']);
-        return true;
-    }
-    
-    if(isLoggedIn()){
-        unset($_SESSION['username']);
-        unset($_SESSION['display_name']);
-        unset($_COOKIE['username']);
-        unset($_COOKIE['password']);
-        return true;
-    }
-    return false;
+    setcookie('username', "", time() - 3600, "/");
+    setcookie('password', "", time() - 3600, "/");
+    unset($_SESSION['username']);
+    unset($_SESSION['display_name']);
+    return true;
 }
 
 /*
@@ -61,6 +51,12 @@ function isLoggedIn(){
     if(isset($_SESSION['username'])){
         return true;
     }
+    
+    // Try to log in using cookies
+    if(isset($_COOKIE['username']) && isset($_COOKIE['password'])){
+        return login($_COOKIE['username'], $_COOKIE['password'], passwordIsHashed: true);
+    }
+    
     return false;
 }
 

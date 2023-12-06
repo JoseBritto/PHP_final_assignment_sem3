@@ -34,3 +34,8 @@ function getLinks($sectionId, $userId = null)
 {
     return Database::getInstance()->getLinks($sectionId, $userId);
 }
+
+function updatePathwayTitle($pathway, $newTitle)
+{
+    Database::getInstance()->updatePathwayTitle($pathway, $newTitle);
+}

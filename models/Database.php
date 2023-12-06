@@ -260,5 +260,15 @@ class Database
         }
         return false;
     }
+    
+    public function updatePathwayTitle($pathwayId, $newTitle)
+    {
+        $sql = "UPDATE pathways SET pathway_title = '$newTitle' WHERE pathway_id = '$pathwayId'";
+        $result = $this->conn->query($sql);
+        if($result){
+            return true;
+        }
+        return false;
+    }
 
 }

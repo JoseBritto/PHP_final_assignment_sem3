@@ -33,6 +33,30 @@ else{
     Header("Location: login.php?redirect=".urlencode($_SERVER['REQUEST_URI']));
     exit();
 }
+
+$isEditMode = isset($_GET['edit']);
+$editModeType = "none";
+if($isEditMode){
+    $editModeType = $_GET['edit'];
+}
+
+const TITLE_EDIT_MODE = "title";
+const DESCRIPTION_EDIT_MODE = "description";
+const LINK_EDIT_MODE = "link";
+
+if($editModeType == TITLE_EDIT_MODE){
+    if(isset($_POST['new_title'])){
+        if(isset($_POST['action']) && ($_POST['action'] == "save")){
+            $newTitle = $_POST['new_title'];
+            if($newTitle != $pathwayTitle){
+                $pathwayTitle = $newTitle;
+                updatePathwayTitle($pathwayId, $newTitle);
+            }
+        }
+        $editModeType = "none";
+    }
+}
+
 ?>
 
 
@@ -67,27 +91,70 @@ if($isLoggedIn) {
 
 <section id="top">
     <div class="image">
-        <img src="assets/css/img/web-design.png" alt="alt">
+        
+        <?php if($pathway->pathway_image != null): ?>
+            <img src="<?php echo $pathway->pathway_image ?>" alt="alt">
+        <?php else: ?>
+            <img src="assets/css/img/web-design.png" alt="alt">
+        <?php endif; ?>
     </div>
     <div class="main-area">
-        
-        <h1><?php echo $pathwayTitle ?></h1>
-        <div class="progress-control">
-            <div class="progress">
-                <div class="progress-bar" style="width: <?php echo getProgress($userId, $pathwayId) ?>%"></div>
+        <?php if($editModeType == TITLE_EDIT_MODE): ?>
+            <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" class="title-edit">
+                <input type="hidden" name="pathway_id" value="<?php echo $pathwayId ?>">
+                <input type="text" name="new_title" value="<?php echo $pathwayTitle ?>">
+                <div class="buttons">
+                    <button class="cancel-btn" type="submit" name="action" value="discard">Discard</button>
+                    <button type="submit" name="action" value="save">Save</button>
+                </div>
+            </form>
+        <?php else: ?>
+            <h1><?php echo $pathwayTitle ?></h1>
+            <div class="progress-control">
+                <div class="progress">
+                    <div class="progress-bar" style="width: <?php echo getProgress($userId, $pathwayId) ?>%"></div>
+                </div>
+                <div class="progress-text"><?php echo getProgress($userId, $pathwayId) ?>%</div>
+                <button class="cancel-btn"> <i class="las la-trash-alt"></i> Remove</button>
+                <button class="fork-btn"> <i class="las la-code-branch"></i> Fork</button>
             </div>
-            <div class="progress-text"><?php echo getProgress($userId, $pathwayId) ?>%</div>
-            <button class="cancel-btn"> <i class="las la-trash-alt"></i> Remove</button>
-            <button class="fork-btn"> <i class="las la-code-branch"></i> Fork</button>
-        </div>
+        <?php endif; ?>
 </section>
 
 <hr>
 
 <main>
     <section id="description">
-        <h2>Section <?php echo "$currentSection->order - $currentSection->section_title"?></h2>
-        <p> <?php echo $currentSection->section_description ?> </p>
+        <?php
+        $order = $currentSection->order;
+        if(empty($order))
+            $order = $currentSectionNumber;
+        ?>
+        <?php if($editModeType == DESCRIPTION_EDIT_MODE): ?>
+            <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" class="description-edit">
+                <input type="hidden" name="pathway_id" value="<?php echo $pathwayId ?>">
+                <div class="section-title-edit">
+                    <h2>Section <?php echo $order." -"?></h2>
+                    <input type="text" name="new_section_title" value="<?php echo $currentSection->section_title ?>">
+                </div>
+                <textarea name="new_description" id="" cols="100" rows="50"><?php echo $currentSection->section_description ?></textarea>
+                <div class="buttons">
+                    <button class="cancel-btn" type="submit" name="action" value="discard">Discard</button>
+                    <button type="submit" name="action" value="save">Save</button>
+                </div>
+            </form>
+        <?php else: ?>
+            <?php if(empty($currentSection)): ?>
+                <h2>404 - Content Not Found!</h2>
+                <p>The author hasn't provided any content for this section yet! <br>
+                    While you wait, why not check out this cool cat pic that I found? <br>
+                    <img class="random-cat-pic" src="https://api.thecatapi.com/v1/images/search?format=src" alt="A random cat pic" width="350">
+                </p>
+            <?php else: ?>
+                <h2>Section <?php echo "$order - $currentSection->section_title"?></h2>
+                <p> <?php echo $currentSection->section_description ?> </p>
+            <?php endif; ?>
+        <?php endif; ?>
     </section>
     
     <section class="links">
