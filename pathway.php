@@ -30,8 +30,9 @@ if($currentSection == null){
 if($isLoggedIn)
     $links = getLinks($currentSection->section_id, $userId);
 else{
-    Header("Location: login.php?redirect=".urlencode($_SERVER['REQUEST_URI']));
-    exit();
+    /*Header("Lo
+    cation: login.php?redirect=".urlencode($_SERVER['REQUEST_URI']));
+    exit();*/
 }
 
 $isEditMode = isset($_GET['edit']);
@@ -50,8 +51,12 @@ if($editModeType == TITLE_EDIT_MODE){
             $newTitle = $_POST['new_title'];
             if($newTitle != $pathwayTitle){
                 $pathwayTitle = $newTitle;
-                updatePathwayTitle($pathwayId, $newTitle);
+                updatePathwayTitle($userId, $pathwayId, $newTitle);
             }
+        }
+        if(isset($_POST['action'])){
+            $url = strtok($_SERVER['REQUEST_URI'], '?');
+            Header("Location: $url?pathway_id=$pathwayId&section=$currentSectionNumber");
         }
         $editModeType = "none";
     }
@@ -109,7 +114,12 @@ if($isLoggedIn) {
                 </div>
             </form>
         <?php else: ?>
+        <div class="title">
             <h1><?php echo $pathwayTitle ?></h1>
+            <?php if(isOwner($userId, $pathwayId)): ?>
+                <button class="edit-btn" onclick="window.location.href = '<?php echo $_SERVER['REQUEST_URI'] ?>&edit=title'"> <i class="las la-edit"></i></button>
+            <?php endif; ?>
+        </div>
             <div class="progress-control">
                 <div class="progress">
                     <div class="progress-bar" style="width: <?php echo getProgress($userId, $pathwayId) ?>%"></div>

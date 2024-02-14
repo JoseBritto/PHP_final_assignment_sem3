@@ -35,7 +35,18 @@ function getLinks($sectionId, $userId = null)
     return Database::getInstance()->getLinks($sectionId, $userId);
 }
 
-function updatePathwayTitle($pathway, $newTitle)
+function updatePathwayTitle($userId, $pathway, $newTitle)
 {
-    Database::getInstance()->updatePathwayTitle($pathway, $newTitle);
+    if(!isOwner($userId, $pathway)){
+        return false;
+    }
+    return Database::getInstance()->updatePathwayTitle($pathway, $newTitle);
+}
+
+function isOwner($userId, $pathwayId)
+{
+    return Database::getInstance()->isOwner($userId, $pathwayId);
+}
+{
+    
 }

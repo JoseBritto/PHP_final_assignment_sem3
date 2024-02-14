@@ -408,3 +408,21 @@ input[type="checkbox"]:hover::before {
     object-fit: cover;
     margin: 50px;
 }
+
+.edit-btn{
+    background-color: rgba(83, 83, 83, 0.37);
+    color: #dbd2d2;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 0.65em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+#top .title h1{
+    display: inline-block;
+}

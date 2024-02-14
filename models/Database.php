@@ -25,7 +25,7 @@ class Database
     
     public function __construct()
     {
-        $this->conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $this->conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
         if (!$this->conn) {
             die("Connection failed: " . $this->conn->connect_error);
         }
@@ -266,6 +266,16 @@ class Database
         $sql = "UPDATE pathways SET pathway_title = '$newTitle' WHERE pathway_id = '$pathwayId'";
         $result = $this->conn->query($sql);
         if($result){
+            return true;
+        }
+        return false;
+    }
+
+    public function isOwner($userId, $pathwayId)
+    {
+        $sql = "SELECT * FROM pathways WHERE owner_id = '$userId' AND pathway_id = '$pathwayId'";
+        $result = $this->conn->query($sql);
+        if($result->num_rows == 1){
             return true;
         }
         return false;
